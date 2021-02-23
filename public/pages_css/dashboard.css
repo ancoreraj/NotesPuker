@@ -1,0 +1,42 @@
+.dashboard__main{
+    width: 70%;
+}
+.dashboard__top{
+    padding: 10px;
+    text-align: center;
+}
+.dashboard__topContributer{
+    margin-top: 15px;
+    
+}
+.dashboard__topContributer h4{
+    padding: 8px;
+    text-align: center;
+}
+.dashboard__collegeQuora{
+    margin-top: 15px;
+}
+.dashboard__collegeQuora h4{
+    padding: 8px;
+    text-align: center;
+}
+.dashboard__quoraInputQuestion{
+    padding: 5px;
+}
+.dashboard__quoraInputQuestion input{
+    margin-right: 5px;
+    outline-width: 0;
+}
+.dashboard__questions{
+    padding: 5px;
+    
+}
+
+
+
+@media only screen and (max-width:900px) {
+    .dashboard__main{
+        width: 100%;
+    }
+
+}

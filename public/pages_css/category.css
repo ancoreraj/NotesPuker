@@ -1,0 +1,77 @@
+.category__main{
+    
+    width: 70%;
+}
+.category__top{
+    padding: 10px;
+    text-align: center;
+}
+.category__topDetail{
+    margin: auto;
+    /* justify-content: space-around; */
+}
+.category__topDetail h5{
+    margin-right: 18px;
+}
+.category__uploadForm{
+    margin-top: 10px;
+}
+.category__upload{
+    margin-top: 10px;
+}
+.category__searchFiles{
+    padding: 10px;
+    margin-top: 10px;
+}
+.category__searchFiles input{
+    margin-right: 5px;
+    outline-width: 0;
+}
+.category__allFiles{
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.category__file{
+    margin: 15px;
+    padding: 15px 10px 10px 10px;
+}
+.category__file h3{
+    padding-left: 10px;
+}
+.category__fileBottom{
+    display: flex;
+    justify-content: space-between;
+}
+.category__fileBottom p{
+    /* padding-bottom: 0px !important; */
+    cursor: pointer;
+    padding: 3px 5px;
+    margin: 3px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+    text-decoration: none !important;
+}
+.category__fileBottom p:hover{
+    background-color: rgb(204, 204, 204);
+}
+.category__fileBottomDate{
+    
+}
+.category__fileBottomDate p{
+    border: none;
+    font-size: 12px;
+    cursor: text;
+}
+.category__fileBottomDate p:hover{
+    background-color: #fff;
+}
+
+
+
+@media only screen and (max-width:900px) {
+    .category__main{
+        width: 100%;
+    }
+
+}

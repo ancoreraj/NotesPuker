@@ -1,0 +1,20 @@
+.profile__main{
+    width: 70%;
+}
+.profile__top{
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.profile__body{
+    margin-top: 15px;
+}
+
+
+
+@media only screen and (max-width:900px) {
+    .profile__main{
+        width: 100%;
+    }
+
+}
