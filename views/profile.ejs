@@ -36,40 +36,12 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 
       <!-- Name and Logo Section -->
-      <div class="navbar-brand-wrapper d-flex justify-content-center">
-        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-          <!-- <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo" /></a> -->
-          <a class="navbar-brand brand-logo" href="index.html">College Space</a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-sort-variant"></span>
-          </button>
-        </div>
-      </div>
-
-
+      <%- include('partials/_name_logo'); -%>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 
-
         <ul class="navbar-nav navbar-nav-right">
-
           <!--User Profile Section -->
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face5.jpg" alt="profile" />
-              <span class="nav-profile-name">Ankur Raj</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="mdi mdi-account text-primary"></i>
-                Profile
-              </a>
-              <a class="dropdown-item">
-                <i class="mdi mdi-logout text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
+          <%- include('partials/_userProfileSection',{profile : profile}); -%>
 
         </ul>
 
@@ -89,104 +61,7 @@
 
       <!-- SideBar -->
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-
-
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="mdi mdi-home menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-
-          <!-- First Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#first-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">1st Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="first-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- Second Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#second-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">2nd Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="second-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- Third Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#third-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">3rd Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="third-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- Fourth Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#fourth-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">4th Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="fourth-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-
-        </ul>
-      </nav>
+      <%- include('partials/_sidebar'); -%>
 
       <!-- Main Panel Home  -->
       <!-- partial -->
@@ -197,13 +72,13 @@
           <div class="card profile__main">
             <div class="profile__top d-flex">
               <div>
-                <h1>Ankur Raj</h1>
+                <h1><%=profile.displayName%></h1>
                 <div class="d-flex">
-                  <h6>NIT Agartala</h6>
-                  <h6 style="margin-left: 18px;">10 uploads</h6>
+                  <h6><%=profile.collegeName%></h6>
+                  <h6 style="margin-left: 18px;"><%=pdfs.length%> Upload(s)</h6>
                 </div>
               </div>
-              <img src="images/faces/face5.jpg" alt="profile" />
+              <img src="<%=profile.image%>" alt="profile" />
             </div>
           </div>
           <div class="profile__body">

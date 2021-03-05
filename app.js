@@ -6,14 +6,14 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const passport = require('passport')
 const session = require('express-session')
-// const MongoStore = require('connect-mongo')(session)
+const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db')
 
 // Load config
 dotenv.config({ path: './config/config.env' })
 
 // Passport config (Uncomment it after using passport)
-// require('./config/passport')(passport)
+require('./config/passport')(passport)
 
 connectDB()
 
@@ -46,14 +46,14 @@ app.set('view engine', 'ejs');
 
 
 // Sessions
-// app.use(
-//   session({
-//     secret: 'keyboard cat',
-//     resave: false,
-//     saveUninitialized: false,
-//     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-//   })
-// )
+app.use(
+  session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+)
 
 // Passport middleware
 app.use(passport.initialize())
@@ -70,7 +70,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
 app.use('/', require('./routes/ind'))
-// app.use('/auth', require('./routes/auth'))
+app.use('/auth', require('./routes/auth'))
+app.use('/dashboard', require('./routes/dashboard'))
+app.use('/profile', require('./routes/profile'))
+app.use('/like', require('./routes/like'))
 // app.use('/stories', require('./rou tes/stories'))
 
 const PORT = process.env.PORT || 3000

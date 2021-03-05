@@ -32,6 +32,17 @@
     
 }
 
+.category__uploadFormBottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black !important;
+    opacity: 1 !important; /* Firefox */
+  }
+  
+
 
 
 @media only screen and (max-width:900px) {
