@@ -39,7 +39,7 @@
 //     console.error(err)
 //     res.render('error/500')
 //   }
-// })
+// }) 
 
 // // @desc    Show single story
 // // @route   GET /stories/:id

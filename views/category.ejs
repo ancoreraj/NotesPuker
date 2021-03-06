@@ -38,49 +38,23 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 
       <!-- Name and Logo Section -->
-      <div class="navbar-brand-wrapper d-flex justify-content-center">
-        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-          <!-- <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo" /></a> -->
-          <a class="navbar-brand brand-logo" href="index.html">College Space</a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-sort-variant"></span>
+      <%- include('partials/_name_logo'); -%>
+
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+
+          <ul class="navbar-nav navbar-nav-right">
+
+            <!--User Profile Section -->
+            <%- include('partials/_userProfileSection'); -%>
+
+          </ul>
+
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
           </button>
+
         </div>
-      </div>
-
-
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-
-        <ul class="navbar-nav navbar-nav-right">
-
-          <!--User Profile Section -->
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="/images/faces/face5.jpg" alt="profile" />
-              <span class="nav-profile-name">Ankur Raj</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="mdi mdi-account text-primary"></i>
-                Profile
-              </a>
-              <a class="dropdown-item">
-                <i class="mdi mdi-logout text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-
-
-        </ul>
-
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
-          <span class="mdi mdi-menu"></span>
-        </button>
-
-      </div>
 
     </nav>
 
@@ -91,241 +65,104 @@
 
       <!-- SideBar -->
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
+      <%- include('partials/_sidebar'); -%>
+
+        <!-- Main Panel Home  -->
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            <!-- Home Top/ Welcome and all -->
+            <div class="category__main">
+              <div class="card category__top">
+
+                <%if(year === '1'){%>
+                  <h2>1st year</h2>
+
+                <%}else if(year==='2'){%>
+                <h2>2nd year</h2>
+
+                <%}else if(year==='3'){%>
+                <h2>3rd year</h2>
+
+                <%}else if(year==='4'){%>
+                <h2>4th year</h2>
+
+                <%}%>
 
 
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="mdi mdi-home menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
+                <div class="d-flex category__topDetail">
+                  <%if(year === '1'){%>
+                    <h5>All Branches</h5>
+  
+                  <%}else {%>
+                  <h5><%=branch_sliced%></h5>
+  
+                  <%}%>
+                  
+                  <h5><%= college %></h5>
+                </div>   
+                    
+               
+                
 
-          <!-- First Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#first-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">1st Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="first-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- Second Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#second-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">2nd Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="second-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- Third Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#third-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">3rd Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="third-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <!-- Fourth Year -->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#fourth-year" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-circle-outline menu-icon"></i>
-              <span class="menu-title">4th Year</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="fourth-year">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">BioTech Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Civil Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Computer Science & Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Chemical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electrical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Electronics & Communication Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Mechanical Engineering</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Production</a></li>
-              </ul>
-            </div>
-          </li>
-
-
-        </ul>
-      </nav>
-
-      <!-- Main Panel Home  -->
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-
-          <!-- Home Top/ Welcome and all -->
-          <div class="category__main">
-            <div class="card category__top">
-              <h2>2nd Year</h2>
-              <div class="d-flex category__topDetail">
-                <h5>Civil Engineering</h5>
-                <h5>NIT Agartala</h5>
+                          
 
               </div>
 
-            </div>
 
-            <div id="form" data-aos="zoom-in-up" class="card category__uploadForm">
-              <div class="card-body">
-                <h4 class="card-title">Enter the details</h4>
-                <form class="forms-sample">
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Enter a suitable title for your upload.">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Google Drive Shareable link">
-                  </div>
-                  <button type="submit" class="btn btn-danger mr-2">Submit</button>
-                  <button id="cancel" class="btn btn-light">Cancel</button>
+              <div class="card category__searchFiles">
+                <form action="" class="d-flex">
+                  <input type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Search for your notes" autocomplete="off">
+                  <button type="submit" class="btn btn-secondary">Search</button>
                 </form>
               </div>
-            </div>
 
+              <div class="card category__allFiles">
 
+                <% if(pdfs.length==0){ %>
+                  <h2>There is no notes or files uploaded here.</h2>
 
+                  
 
-            <div class="card category__upload">
-              <button id="pop-btn" type="button" class="btn btn-danger btn-icon-text">
-                <i class="mdi mdi-upload btn-icon-prepend"></i>
-                Upload your file
-              </button>
-            </div>
+                <% }else{ %>
+                  <% pdfs.forEach((pdf)=>{ %>
+                    <%-include('partials/_pdfFile',{pdf : pdf}) %>
+  
+                  <% }) %>
+                  
+                <% } %>
 
-            <div class="card category__searchFiles">
-              <form action="" class="d-flex">
-                <input type="text" class="form-control" id="exampleFormControlInput1"
-                  placeholder="Search for your notes" autocomplete="off">
-                <button type="submit" class="btn btn-secondary">Search</button>
-              </form>
-            </div>
-
-            <div class="card category__allFiles">
-
-              <div class="card category__file">
-                <h3>This is the title of the file</h3>
-                <div class="category__fileBottom">
-                  <div class="d-flex">
-                    <p><a class="profileUrl" href="#">
-                        <i class="mdi mdi-apple-keyboard-caps"></i>
-                        <span>Upvote</span>
-                        <span>(29)</span>
-                      </a></p>
-                    <p>
-                      <a class="profileUrl" href="#">
-                        <i class="mdi mdi-download"></i>
-                        <span>Download</span>
-                      </a>
-                    </p>
-                    <p>
-                      <a class="profileUrl" href="#">
-                        <i class="mdi mdi-account"></i>
-                        <span>Ankur</span>
-                      </a>
-                    </p>
-                  </div>
-                  <div class="category__fileBottomDate">
-                    <p>Posted on 02/02/2021</p>
-                  </div>
-                </div>
               </div>
 
 
 
+
             </div>
 
 
-
-
           </div>
-
-
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © College
-              Space</span>
-            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © College
+                Space</span>
+              <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
                 href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from
               Bootstrapdash.com</span> -->
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
 
-  <script>
-    form = document.getElementById('form')
-    popupBtn = document.getElementById("pop-btn")
-    cancelBtn = document.getElementById("cancel")
-    function popupForm() {
-      popupBtn.addEventListener('click', () => {
-        form.style.display = "block"
-        popupBtn.style.display = "none"
-      })
-    }
-    function popdownForm() {
-      
-      cancelBtn.addEventListener('click', () => {
-        form.style.display = "none"
-        popupBtn.style.display = "block"
-      })
-    }
-    function main() {
-      form.style.display = "none"
-      popupForm();
-      popdownForm();
-      
-    }
-    main()
-  </script>
+
 
 
   <!-- plugins:js -->

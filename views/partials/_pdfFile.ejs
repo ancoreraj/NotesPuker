@@ -1,0 +1,27 @@
+<div class="card category__file">
+    <h3><%=pdf.title%></h3>
+    <div class="category__fileBottom">
+      <div class="d-flex">
+        <p><a id="liker" class="profileUrl">
+            <i class="mdi mdi-apple-keyboard-caps"></i>
+            <span>Upvote</span>
+            <span><%=pdf.upvotes.length%></span>
+          </a></p>
+        <p>
+          <a class="profileUrl" href="#">
+            <i class="mdi mdi-download"></i>
+            <span>Download</span>
+          </a>
+        </p>
+        <p>
+          <a class="profileUrl" href="/profile/<%=pdf.user%>">
+            <i class="mdi mdi-account"></i>
+            <span><%=pdf.userName%></span>
+          </a>
+        </p>
+      </div>
+      <div class="category__fileBottomDate">
+        <p>Posted on <%=pdf.createdAt%></p>
+      </div>
+    </div>
+  </div>

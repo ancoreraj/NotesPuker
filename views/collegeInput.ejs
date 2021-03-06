@@ -49,15 +49,15 @@
 
         <div class="container">
             <div class="lp__body">
-                <h4>Welcome to College Space</h4>
+                <h4>Welcome <%= name %></h4>
                 <h1>You are juch one step from the dashboard</h1>
 
 
 
                 <div class="row lp__bodyLogin">
-                    <form action="">
+                    <form action="/collegeinput" method="POST">
                         <div class="form-group m-1">
-                            <input class="form-control" type="text" name="college" list="colleges" autocomplete="off" placeholder="Whats your College?">
+                            <input class="form-control" type="text" name="college" list="colleges" autocomplete="off" placeholder="Whats your College?" required>
                             <datalist  id="colleges">
                                 <option value="NIT Agartala">
                                 <option value="NIT Silchar">
@@ -67,7 +67,7 @@
                             </datalist>
                             
                         </div>
-                        <button type="button" class="m-0 btn btn-dark btn-icon-text">
+                        <button type="submit" class="m-0 btn btn-dark btn-icon-text">
                             <div class="d-flex">
                                 <p>Lets go</p>
                                 <i class="mdi mdi-airplane-takeoff btn-icon-append"></i> 

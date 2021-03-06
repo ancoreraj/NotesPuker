@@ -10,8 +10,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   firstName: {
-    type: String,
-    required: true,
+    type: String
   },
   image: {
     type: String,
@@ -19,6 +18,10 @@ const UserSchema = new mongoose.Schema({
   collegeName: {
     type: String,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 })
 
 module.exports = mongoose.model('User', UserSchema)
