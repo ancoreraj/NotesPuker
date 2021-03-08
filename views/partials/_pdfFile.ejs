@@ -2,10 +2,10 @@
     <h3><%=pdf.title%></h3>
     <div class="category__fileBottom">
       <div class="d-flex">
-        <p><a id="liker" class="profileUrl">
+        <p class="upvoteBtn" onclick="updateUpvote('<%= pdf.user %>', '<%= pdf.title%>', '<%= pdf._id %>')"><a id="liker" class="profileUrl">
             <i class="mdi mdi-apple-keyboard-caps"></i>
             <span>Upvote</span>
-            <span><%=pdf.upvotes.length%></span>
+            <span id="<%= pdf._id %>"><%=pdf.upvotes.length%></span>
           </a></p>
         <p>
           <a class="profileUrl" href="#">

@@ -128,7 +128,7 @@
 
                 <% }else{ %>
                   <% pdfs.forEach((pdf)=>{ %>
-                    <%-include('partials/_pdfFile',{pdf : pdf}) %>
+                    <%-include('partials/_pdfFile',{pdf : pdf, branch: branch, year: year}) %>
   
                   <% }) %>
                   
@@ -185,7 +185,22 @@
   <script src="/js/dataTables.bootstrap4.js"></script>
   <!-- End custom js for this page-->
   <script src="/js/jquery.cookie.js" type="text/javascript"></script>
+  
+  <!-- Upvote features js -->
   <script>
+
+    function updateUpvote(userId, title, pdfId) {
+        const year = '<%= year %>'
+        const branch = '<%= branch %>'
+        $.post('/dashboard/' + year + '/' + branch,
+        {
+            id: userId,
+            title: title
+        },
+        (res, status) => {
+            $(`#${pdfId}`).text(res.upvoteCount);
+        });
+    }
 
   </script>
 </body>

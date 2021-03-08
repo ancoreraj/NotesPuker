@@ -30,13 +30,18 @@ const PdfSchema = new mongoose.Schema({
     
   },
   createdAt: {
-    type: Date,
+    type: String,
     default: Date.now,
   },
   upvotes: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
   }]
 })
 
 module.exports = mongoose.model('Pdf', PdfSchema)
+
+// upvotes: [{
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'User'
+//   }]
