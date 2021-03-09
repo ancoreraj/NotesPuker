@@ -42,8 +42,8 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
         branch_sliced : branch_sliced,
         college : college,
         year : year,
+        branch: branch,
         pdfs: pdfs
-        
       })
 
     }catch(err){
@@ -59,6 +59,7 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
       res.render("category", {
         branch_sliced : branch_sliced,
         college : college,
+        branch: branch,      
         year : year,
         pdfs : pdfs
       })
@@ -71,6 +72,33 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
 
 })
 
+router.post('/:year/:branch', (req, res) => {
+    try {
+        const userId = req.body.id
+        const title = req.body.title
+        Pdfs.findOne({user: userId, title: title}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                const currUser = req.user.id;
+                if(foundPdf.upvotes.indexOf(currUser) === -1) {
+                    foundPdf.upvotes.push(req.user.id)
+                }
+                else {
+                    index = foundPdf.upvotes.indexOf(currUser);
+                    foundPdf.upvotes.splice(index, 1);
+                }
+                foundPdf.save((err) => {
+                    console.log(err);
+                });
+                res.send({upvoteCount: foundPdf.upvotes.length})
+            }
+        });
+    } catch(err) {
+        console.log(err);
+    }
+});
 
 //To upload the file
 router.post('/uploadfile',ensureAuth,(req,res)=>{
@@ -79,7 +107,8 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
     const title = req.body.title
     const year = req.body.year
     const branch = _.camelCase(req.body.branch)
-
+    const date = new Date();
+    const dateStr = date.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}).split(",")[0]
     const pdf = new Pdfs({
       title: title,
       driveUrl: driveUrl,
@@ -87,8 +116,8 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
       year: year,
       branch: branch,
       user: req.user.id,
-      userName: req.user.firstName
-
+      userName: req.user.firstName,
+      createdAt: dateStr
     })
 
     // console.log(pdf)
@@ -107,18 +136,18 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
 
 //To upvote
 
-router.put('/like', ensureAuth ,(req,res)=>{
-  Pdfs.findByIdAndUpdate(req.body.postId,{
-      $push:{upvote:req.user.id}
-  },{
-      new:true
-  }).exec((err,result)=>{
-      if(err){
-          return res.status(422).json({error:err})
-      }else{
-          console.log(result)
-      }
-  })
-})
+// router.put('/like', ensureAuth ,(req,res)=>{
+//   Pdfs.findByIdAndUpdate(req.body.postId,{
+//       $push:{upvote:req.user.id}
+//   },{
+//       new:true
+//   }).exec((err,result)=>{
+//       if(err){
+//           return res.status(422).json({error:err})
+//       }else{
+//           console.log(result)
+//       }
+//   })
+// })
 
 module.exports = router
