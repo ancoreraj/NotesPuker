@@ -150,4 +150,40 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
 //   })
 // })
 
+//=================Search routing====================================
+
+router.post("/:year/:branch/search", (req, res) => {
+    const searchQuery = req.body.searchQuery;
+    const year = req.params.year
+    const branch = req.params.branch
+    const college = req.user.collegeName
+    var result = branch.replace( /([A-Z])/g, " $1" );
+    var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
+    // console.log(searchQuery);
+
+    Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, college: college}, (err, foundPdf) => {
+        if(err) {
+            console.log(err);
+        }
+        else {
+            // console.log(foundPdf);
+            if(foundPdf.length === 0) {
+                // alert("No Pdfs found for given title.\nTry to enter correct title");
+                res.redirect(`/dashboard/${year}/${branch}`);
+            }
+            else {
+                res.render("category", {
+                    branch_sliced : branch_sliced,
+                    college : college,
+                    branch: branch,      
+                    year : year,
+                    pdfs : foundPdf
+                });
+            }
+        }
+    })
+})
+
+
+
 module.exports = router

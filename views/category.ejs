@@ -112,9 +112,9 @@
 
 
               <div class="card category__searchFiles">
-                <form action="" class="d-flex">
+                <form action="/dashboard/<%= year %>/<%= branch %>/search" method="POST" class="d-flex">
                   <input type="text" class="form-control" id="exampleFormControlInput1"
-                    placeholder="Search for your notes" autocomplete="off">
+                    placeholder="Search for your notes" name="searchQuery" autocomplete="off">
                   <button type="submit" class="btn btn-secondary">Search</button>
                 </form>
               </div>
