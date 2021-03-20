@@ -112,17 +112,13 @@
 
 
               <div class="card category__searchFiles">
-                <form action="/dashboard/search/<%= year %>/<%= branch %>" method="POST" class="d-flex">
-                  <input type="text" class="form-control" id="exampleFormControlInput1"
-                    placeholder="Search for your notes (enter minimum 3 letters to get better results)" name="searchQuery" autocomplete="off">
-                  <button type="submit" class="btn btn-secondary">Search</button>
-                </form>
+                <h2>Search results for "<%= searchQuery %>"</h2>
               </div>
 
               <div class="card category__allFiles">
 
                 <% if(pdfs.length==0){ %>
-                  <h2>There is no notes or files uploaded here.</h2>
+                  <h3 class="text-danger">We're sorry. No results found !</h3>
 
                   
 
