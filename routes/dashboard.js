@@ -72,11 +72,11 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
 
 })
 
-router.post('/:year/:branch', (req, res) => {
+router.post('/:year/:branch', async (req, res) => {
     try {
         const userId = req.body.id
         const title = req.body.title
-        Pdfs.findOne({user: userId, title: title}, (err, foundPdf) => {
+        await Pdfs.findOne({user: userId, title: title}, (err, foundPdf) => {
             if(err) {
                 console.log(err);
             }
@@ -149,5 +149,57 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
 //       }
 //   })
 // })
+
+//=================Search routing====================================
+
+router.post("/search/:year/:branch", async (req, res) => {
+    const searchQuery = req.body.searchQuery;
+    const year = req.params.year
+    const branch = req.params.branch
+    const college = req.user.collegeName
+    var result = branch.replace( /([A-Z])/g, " $1" );
+    var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
+    // console.log(searchQuery);
+
+    if(branch === 1) {
+        await Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, college: college}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                // console.log(foundPdf);
+                res.render("search", {
+                    branch_sliced : branch_sliced,
+                    college : college,
+                    branch: branch,      
+                    year : year,
+                    searchQuery: searchQuery,
+                    pdfs : foundPdf
+                });
+            }
+        });
+    }
+    else {
+        await Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, branch: branch, college: college}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                // console.log(foundPdf);
+                res.render("search", {
+                    branch_sliced : branch_sliced,
+                    college : college,
+                    branch: branch,      
+                    year : year,
+                    searchQuery: searchQuery,
+                    pdfs : foundPdf
+                });
+            }
+        })
+    }
+    
+})
+
+
 
 module.exports = router
