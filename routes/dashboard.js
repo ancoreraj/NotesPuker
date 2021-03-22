@@ -8,10 +8,14 @@ const Pdfs = require('../models/Pdfs')
 
 // @desc    dashboard of the respective college
 // @route   GET /dashboard/
-router.get('/', ensureAuth ,(req,res)=>{
+router.get('/', ensureAuth , async (req,res)=>{
   req.params.college = req.user.collegeName;
+  const profile = await User.findById(req.user.id)
 
-  res.render("dashboard",{college : req.user.collegeName})
+  res.render("dashboard", {
+      college : req.user.collegeName,
+      profile : profile
+    })
 
 })
 
@@ -24,6 +28,7 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
   const year = req.params.year
   const branch = req.params.branch
   const college = req.user.collegeName
+  const profile = await User.findById(req.user.id)
   var result = branch.replace( /([A-Z])/g, " $1" );
   var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
   const br = `All Branches`
@@ -43,7 +48,8 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
         college : college,
         year : year,
         branch: branch,
-        pdfs: pdfs
+        pdfs: pdfs,
+        profile: profile
       })
 
     }catch(err){
@@ -61,7 +67,8 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
         college : college,
         branch: branch,      
         year : year,
-        pdfs : pdfs
+        pdfs : pdfs,
+        profile: profile
       })
 
     }catch(err){
@@ -104,8 +111,9 @@ router.post('/:year/:branch', async (req, res) => {
 });
 
 //To upload the file
-router.post('/uploadfile',ensureAuth,(req,res)=>{
+router.post('/',ensureAuth,(req,res)=>{
   try{
+      console.log("hello");
     const driveUrl = req.body.driveUrl
     const title = req.body.title
     const year = req.body.year
@@ -129,7 +137,8 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
       console.log(err);
     })
 
-    res.redirect('/dashboard')
+    // res.redirect('/dashboard')
+    res.send("hello");
   } catch (err){
     console.log(err)
 
