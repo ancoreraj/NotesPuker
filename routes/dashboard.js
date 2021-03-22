@@ -72,6 +72,9 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
 
 })
 
+
+
+// Like feature
 router.post('/:year/:branch', async (req, res) => {
     try {
         const userId = req.body.id
@@ -134,21 +137,6 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
 
 })
 
-//To upvote
-
-// router.put('/like', ensureAuth ,(req,res)=>{
-//   Pdfs.findByIdAndUpdate(req.body.postId,{
-//       $push:{upvote:req.user.id}
-//   },{
-//       new:true
-//   }).exec((err,result)=>{
-//       if(err){
-//           return res.status(422).json({error:err})
-//       }else{
-//           console.log(result)
-//       }
-//   })
-// })
 
 //=================Search routing====================================
 

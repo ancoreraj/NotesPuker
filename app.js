@@ -72,7 +72,7 @@ app.use('/', require('./routes/ind'))
 app.use('/auth', require('./routes/auth'))
 app.use('/dashboard', require('./routes/dashboard'))
 app.use('/profile', require('./routes/profile'))
-app.use('/like', require('./routes/like'))
+// app.use('/like', require('./routes/like'))
 // app.use('/stories', require('./rou tes/stories'))
 
 const PORT = process.env.PORT || 3000

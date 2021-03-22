@@ -7,7 +7,7 @@ const User = require('../models/User')
 const Pdfs = require('../models/Pdfs')
 
 // // @desc    Profile of the authenticated person
-// // @route   GET /profile
+// // @route   GET /profile/userid
 router.get('/:id', ensureAuth , async (req,res)=>{
 
     try{
@@ -26,9 +26,22 @@ router.get('/:id', ensureAuth , async (req,res)=>{
 
     }
 
-    
- 
+})
 
+router.post('/:id', ensureAuth, async (req, res) => {
+  try {
+    Pdfs.findByIdAndRemove(req.params.id,(err,docs)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/profile/req.user._id")
+            console.log(req.user)
+        }
+    })
+
+  } catch (err) {
+    console.error(err)
+  }
 })
 
 
