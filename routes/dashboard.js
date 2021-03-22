@@ -42,8 +42,8 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
         branch_sliced : branch_sliced,
         college : college,
         year : year,
+        branch: branch,
         pdfs: pdfs
-        
       })
 
     }catch(err){
@@ -59,6 +59,7 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
       res.render("category", {
         branch_sliced : branch_sliced,
         college : college,
+        branch: branch,      
         year : year,
         pdfs : pdfs
       })
@@ -72,6 +73,36 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
 })
 
 
+
+// Like feature
+router.post('/:year/:branch', async (req, res) => {
+    try {
+        const userId = req.body.id
+        const title = req.body.title
+        await Pdfs.findOne({user: userId, title: title}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                const currUser = req.user.id;
+                if(foundPdf.upvotes.indexOf(currUser) === -1) {
+                    foundPdf.upvotes.push(req.user.id)
+                }
+                else {
+                    index = foundPdf.upvotes.indexOf(currUser);
+                    foundPdf.upvotes.splice(index, 1);
+                }
+                foundPdf.save((err) => {
+                    console.log(err);
+                });
+                res.send({upvoteCount: foundPdf.upvotes.length})
+            }
+        });
+    } catch(err) {
+        console.log(err);
+    }
+});
+
 //To upload the file
 router.post('/uploadfile',ensureAuth,(req,res)=>{
   try{
@@ -79,7 +110,8 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
     const title = req.body.title
     const year = req.body.year
     const branch = _.camelCase(req.body.branch)
-
+    const date = new Date();
+    const dateStr = date.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}).split(",")[0]
     const pdf = new Pdfs({
       title: title,
       driveUrl: driveUrl,
@@ -87,8 +119,8 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
       year: year,
       branch: branch,
       user: req.user.id,
-      userName: req.user.firstName
-
+      userName: req.user.firstName,
+      createdAt: dateStr
     })
 
     // console.log(pdf)
@@ -105,20 +137,57 @@ router.post('/uploadfile',ensureAuth,(req,res)=>{
 
 })
 
-//To upvote
 
-router.put('/like', ensureAuth ,(req,res)=>{
-  Pdfs.findByIdAndUpdate(req.body.postId,{
-      $push:{upvote:req.user.id}
-  },{
-      new:true
-  }).exec((err,result)=>{
-      if(err){
-          return res.status(422).json({error:err})
-      }else{
-          console.log(result)
-      }
-  })
+//=================Search routing====================================
+
+router.post("/search/:year/:branch", async (req, res) => {
+    const searchQuery = req.body.searchQuery;
+    const year = req.params.year
+    const branch = req.params.branch
+    const college = req.user.collegeName
+    var result = branch.replace( /([A-Z])/g, " $1" );
+    var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
+    // console.log(searchQuery);
+
+    if(branch === 1) {
+        await Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, college: college}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                // console.log(foundPdf);
+                res.render("search", {
+                    branch_sliced : branch_sliced,
+                    college : college,
+                    branch: branch,      
+                    year : year,
+                    searchQuery: searchQuery,
+                    pdfs : foundPdf
+                });
+            }
+        });
+    }
+    else {
+        await Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, branch: branch, college: college}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                // console.log(foundPdf);
+                res.render("search", {
+                    branch_sliced : branch_sliced,
+                    college : college,
+                    branch: branch,      
+                    year : year,
+                    searchQuery: searchQuery,
+                    pdfs : foundPdf
+                });
+            }
+        })
+    }
+    
 })
+
+
 
 module.exports = router

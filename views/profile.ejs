@@ -16,6 +16,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/pages_css/profile.css">
+  <link rel="stylesheet" href="/pages_css/category.css">
   <!-- endinject -->
   <!-- <link rel="shortcut icon" href="images/favicon.png" /> -->
   <style>
@@ -82,6 +83,51 @@
             </div>
           </div>
           <div class="profile__body">
+            <div class="card category__allFiles">
+
+              <% if(pdfs.length==0){ %>
+                <h2>There is no notes or files uploaded here.</h2>
+
+                
+
+              <% }else{ %>
+                <% pdfs.forEach((pdf)=>{ %>
+
+                  <div class="card category__file">
+                    <h3>
+                      <%=pdf.title%>
+                    </h3>
+                    <div class="category__fileBottom">
+                      <div class="d-flex">
+                        
+                        <p>
+                          <a type="submit" class="profileUrl" href="#">
+                            <i class="mdi mdi-download"></i>
+                            <span>Download</span>
+                          </a>
+                        </p>
+                        <form action="/profile/<%=pdf._id%>" method="POST">
+                          <button type="submit">
+                            Delete
+                          </button>
+
+                        </form>
+                        
+                        
+                      </div>
+                      <div class="category__fileBottomDate">
+                        <p>Posted on <%=pdf.createdAt%>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                <% }) %>
+                
+              <% } %>
+
+            </div>
 
           </div>
 

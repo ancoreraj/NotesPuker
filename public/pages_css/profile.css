@@ -8,12 +8,16 @@
 
 .profile__body{
     margin-top: 15px;
+    width: 70%;
 }
 
 
 
 @media only screen and (max-width:900px) {
     .profile__main{
+        width: 100%;
+    }
+    .profile__body{
         width: 100%;
     }
 
