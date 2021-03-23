@@ -86,10 +86,7 @@
             <div class="card category__allFiles">
 
               <% if(pdfs.length==0){ %>
-                <h2>There is no notes or files uploaded here.</h2>
-
-                
-
+                <h2>No notes have been uploaded yet.</h2>
               <% }else{ %>
                 <% pdfs.forEach((pdf)=>{ %>
 
@@ -100,19 +97,29 @@
                     <div class="category__fileBottom">
                       <div class="d-flex">
                         
+                        <p class="upvoteBtn"><a id="liker"
+                            class="profileUrl">
+                            <i class="mdi mdi-apple-keyboard-caps"></i>
+                            <span>Upvote</span>
+                            <span id="<%= pdf._id %>">
+                              <%=pdf.upvotes.length%>
+                            </span>
+                          </a>
+                        </p>
+
                         <p>
                           <a type="submit" class="profileUrl" href="#">
                             <i class="mdi mdi-download"></i>
                             <span>Download</span>
                           </a>
                         </p>
-                        <form action="/profile/<%=pdf._id%>" method="POST">
-                          <button type="submit">
-                            Delete
-                          </button>
-
-                        </form>
-                        
+                        <% if (check === "true") { %> 
+                            <form class="dlForm" action="/profile/<%=pdf._id%>" method="POST">
+                                <button type="submit">
+                                    Delete
+                                </button>
+                            </form>
+                        <% } %> 
                         
                       </div>
                       <div class="category__fileBottomDate">
