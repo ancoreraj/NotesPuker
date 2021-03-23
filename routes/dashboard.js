@@ -159,7 +159,7 @@ router.post("/search/:year/:branch", async (req, res) => {
     var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
     // console.log(searchQuery);
 
-    if(branch === 1) {
+    if(year === "1") {
         await Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, college: college}, (err, foundPdf) => {
             if(err) {
                 console.log(err);
