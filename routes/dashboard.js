@@ -23,7 +23,7 @@ router.get('/', ensureAuth , async (req,res)=>{
 
 // @desc    
 // @route   GET /dashboard/year/branch
-router.get('/:year/:branch', ensureAuth , async (req,res)=>{
+router.get('/:year/:branch', ensureAuth, async (req, res) => {
 
   const year = req.params.year
   const branch = req.params.branch
@@ -34,33 +34,33 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
   const br = `All Branches`
   // console.log(branch_sliced)
   // console.log(branch)
-  
-  if(year === '1'){
-    try{
-      const pdfs = await Pdfs.find({college: college , year: year});
 
-      pdfs.forEach((pdf)=>{
+  if (year === '1') {
+    try {
+      const pdfs = await Pdfs.find({ college: college, year: year });
+
+      pdfs.forEach((pdf) => {
         console.log(pdf.user.firstName)
       })
-    
+
       res.render("category", {
-        branch_sliced : branch_sliced,
-        college : college,
-        year : year,
+        branch_sliced: branch_sliced,
+        college: college,
+        year: year,
         branch: branch,
         pdfs: pdfs,
         authorProfile: authorProfile
       })
 
-    }catch(err){
+    } catch (err) {
       console.log(err)
 
     }
 
-  }else{
+  } else {
 
-    try{
-      const pdfs = await Pdfs.find({college: college , year : year , branch : branch});
+    try {
+      const pdfs = await Pdfs.find({ college: college, year: year, branch: branch });
 
       res.render("category", {
         branch_sliced : branch_sliced,
@@ -71,7 +71,7 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
         authorProfile: authorProfile
       })
 
-    }catch(err){
+    } catch (err) {
       console.log(err)
 
     }
@@ -83,43 +83,42 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
 
 // Like feature
 router.post('/:year/:branch', async (req, res) => {
-    try {
-        const userId = req.body.id
-        const title = req.body.title
-        await Pdfs.findOne({user: userId, title: title}, (err, foundPdf) => {
-            if(err) {
-                console.log(err);
-            }
-            else {
-                const currUser = req.user.id;
-                if(foundPdf.upvotes.indexOf(currUser) === -1) {
-                    foundPdf.upvotes.push(req.user.id)
-                }
-                else {
-                    index = foundPdf.upvotes.indexOf(currUser);
-                    foundPdf.upvotes.splice(index, 1);
-                }
-                foundPdf.save((err) => {
-                    console.log(err);
-                });
-                res.send({upvoteCount: foundPdf.upvotes.length})
-            }
-        });
-    } catch(err) {
+  try {
+    const userId = req.body.id
+    const title = req.body.title
+    await Pdfs.findOne({ user: userId, title: title }, (err, foundPdf) => {
+      if (err) {
         console.log(err);
-    }
+      }
+      else {
+        const currUser = req.user.id;
+        if (foundPdf.upvotes.indexOf(currUser) === -1) {
+          foundPdf.upvotes.push(req.user.id)
+        }
+        else {
+          index = foundPdf.upvotes.indexOf(currUser);
+          foundPdf.upvotes.splice(index, 1);
+        }
+        foundPdf.save((err) => {
+          console.log(err);
+        });
+        res.send({ upvoteCount: foundPdf.upvotes.length })
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 //To upload the file
-router.post('/',ensureAuth,(req,res)=>{
-  try{
-    //   console.log("hello");
+router.post('/', ensureAuth, (req, res) => {
+  try {
     const driveUrl = req.body.driveUrl
     const title = req.body.title
     const year = req.body.year
     const branch = _.camelCase(req.body.branch)
     const date = new Date();
-    const dateStr = date.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}).split(",")[0]
+    const dateStr = date.toLocaleString(undefined, { timeZone: 'Asia/Kolkata' }).split(",")[0]
     const pdf = new Pdfs({
       title: title,
       driveUrl: driveUrl,
@@ -133,13 +132,13 @@ router.post('/',ensureAuth,(req,res)=>{
 
     // console.log(pdf)
 
-    pdf.save((err)=>{
+    pdf.save((err) => {
       console.log(err);
     })
 
     // res.redirect('/dashboard')
     res.send({status: "success"});
-  } catch (err){
+  } catch (err) {
     console.log(err)
 
   }
