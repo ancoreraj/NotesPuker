@@ -117,7 +117,6 @@ router.post('/:year/:branch', async (req, res) => {
 //To upload the file
 router.post('/', ensureAuth, (req, res) => {
   try {
-    console.log("hello");
     const driveUrl = req.body.driveUrl
     const title = req.body.title
     const year = req.body.year
@@ -142,7 +141,7 @@ router.post('/', ensureAuth, (req, res) => {
     })
 
     // res.redirect('/dashboard')
-    res.send("hello");
+    res.send({status: "success"});
   } catch (err) {
     console.log(err)
 
