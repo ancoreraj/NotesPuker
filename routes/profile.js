@@ -11,31 +11,45 @@ const Pdfs = require('../models/Pdfs')
 router.get('/:id', ensureAuth , async (req,res)=>{
 
     try{
-        const profile = await User.findById(req.params.id)
-        const pdfs = await Pdfs.find({ user : req.params.id })
-        console.log(profile)
-        console.log(pdfs)
+        const guestId = req.params.id;
+        const authorId = req.user.id;
+        const guestProfile = await User.findById(guestId);
+        const guestPdfs = await Pdfs.find({ user : guestId });
 
-        res.render("profile",{
-            profile,
-            pdfs
-
-        })
-
+        if (guestId === authorId) {
+            res.render("profile", {
+                profile: guestProfile,
+                pdfs: guestPdfs,
+                check: "true"
+            });
+        }
+        else {
+            res.render("profile", {
+                profile: guestProfile,
+                pdfs: guestPdfs,
+                check: "false"
+            })
+        }
     }catch(err){
 
     }
 
 })
 
-router.post('/:id', ensureAuth, async (req, res) => {
+router.post('/:pdfId', ensureAuth, async (req, res) => {
   try {
-    Pdfs.findByIdAndRemove(req.params.id,(err,docs)=>{
+    await Pdfs.findByIdAndRemove(req.params.pdfId, async (err, docs) => {
         if(err){
             console.log(err);
         }else{
-            res.redirect("/profile/req.user._id")
-            console.log(req.user)
+            const profile = await User.findById(req.user.id);
+            const pdfs = await Pdfs.find({ user : req.user.id});
+            res.render("profile", {
+                profile: profile,
+                pdfs: pdfs,
+                check: "true"
+            })
+            console.log(req.user.id);
         }
     })
 

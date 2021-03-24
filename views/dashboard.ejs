@@ -44,7 +44,7 @@
         <ul class="navbar-nav navbar-nav-right">
 
           <!--User Profile Section -->
-          <%- include('partials/_userProfileSection'); -%>
+          <%- include('partials/_userProfileSection', {profile: profile}); -%>
 
         </ul>
 
@@ -108,7 +108,7 @@
             <div id="form" data-aos="zoom-in-up" class="card category__uploadForm mt-2">
               <div class="card-body">
                 <h4 class="mb-3">Enter the details to upload your own notes</h4>
-                <form class="forms-sample" action="/dashboard/uploadfile" method="POST">
+                <form id="uploadForm" name="my-form" class="forms-sample" action="/dashboard/uploadfile" method="POST">
                   <div class="form-group">
                     <input type="text" name="title" class="form-control" id="exampleInputUsername1" placeholder="Enter a suitable title for your upload."  autocomplete="off" required>
                   </div>
@@ -243,6 +243,41 @@
   <script src="/js/dataTables.bootstrap4.js"></script>
   <!-- End custom js for this page-->
   <script src="/js/jquery.cookie.js" type="text/javascript"></script>
+
+    <!-- jQuery for uploading pdf  -->
+    <script>
+        function isValidURL(url) {
+            var res = url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%.\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%\+.~#?&//=]*)/g);
+            return (res !== null)
+        };
+
+        $("#uploadForm").on("submit", (e) => {
+            e.preventDefault();
+
+            const driveUrl = $("#exampleInputEmail1").val();
+            console.log(driveUrl);
+            if(isValidURL(driveUrl)) {
+                $.ajax({
+                    data: $("#uploadForm").serialize(),
+                    type: 'post',
+                    url: "/dashboard",
+                    success: (result) => {
+                        // console.log(result.status);
+                        alert("Your notes has been uploaded successfully. Thank you for your contribution.")
+                        document.forms["my-form"].reset();
+                    },
+                    error: (err) => {
+                        alert("Some error occured while uploading your notes. Sorry for inconvenience !")
+                        document.forms["my-form"].reset();
+                    }
+                });
+            }
+            else {
+                alert("Given drive url is not a valid url. Enter correct url.");
+                $("#exampleInputEmail1").val('');
+            }
+        })    
+    </script>
 </body>
 
 </html>
