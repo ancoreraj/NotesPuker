@@ -11,9 +11,9 @@ const Pdfs = require('../models/Pdfs')
 router.get('/', ensureAuth, async (req, res) => {
 
   const profile = await User.findById(req.user.id)
-  const pdfs = await Pdfs.find({ college: req.user.collegeName })
+  // const pdfs = await Pdfs.find({ college: req.user.collegeName })
   // const allPeople = await User.find({collegeName : req.user.collegeName})
-  console.log(pdfs)
+  // console.log(pdfs)
 
 
   res.render("dashboard", {
@@ -115,7 +115,7 @@ router.post('/:year/:branch', async (req, res) => {
 });
 
 //To upload the file
-router.post('/', ensureAuth, (req, res) => {
+router.post('/', ensureAuth, async (req, res) => {
   try {
     console.log("hello");
     const driveUrl = req.body.driveUrl
@@ -135,11 +135,17 @@ router.post('/', ensureAuth, (req, res) => {
       createdAt: dateStr
     })
 
-    // console.log(pdf)
-
-    pdf.save((err) => {
+    await pdf.save((err) => {
       console.log(err);
     })
+
+    const profile = await User.findById(req.user.id)
+    profile.pdfs.push(pdf)
+
+    await profile.save((err)=>{
+      console.log(err)
+    })
+    console.log(profile)
 
     // res.redirect('/dashboard')
     res.send("hello");
