@@ -10,11 +10,11 @@ const Pdfs = require('../models/Pdfs')
 // @route   GET /dashboard/
 router.get('/', ensureAuth , async (req,res)=>{
   req.params.college = req.user.collegeName;
-  const profile = await User.findById(req.user.id)
+  const authorProfile = await User.findById(req.user.id)
 
   res.render("dashboard", {
       college : req.user.collegeName,
-      profile : profile
+      authorProfile : authorProfile
     })
 
 })
@@ -28,7 +28,7 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
   const year = req.params.year
   const branch = req.params.branch
   const college = req.user.collegeName
-  const profile = await User.findById(req.user.id)
+  const authorProfile = await User.findById(req.user.id)
   var result = branch.replace( /([A-Z])/g, " $1" );
   var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
   const br = `All Branches`
@@ -49,7 +49,7 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
         year : year,
         branch: branch,
         pdfs: pdfs,
-        profile: profile
+        authorProfile: authorProfile
       })
 
     }catch(err){
@@ -68,7 +68,7 @@ router.get('/:year/:branch', ensureAuth , async (req,res)=>{
         branch: branch,      
         year : year,
         pdfs : pdfs,
-        profile: profile
+        authorProfile: authorProfile
       })
 
     }catch(err){
@@ -150,7 +150,7 @@ router.post('/',ensureAuth,(req,res)=>{
 //=================Search routing====================================
 
 router.post("/search/:year/:branch", async (req, res) => {
-    const profile = await User.findById(req.user.id);
+    const authorProfile = await User.findById(req.user.id);
     const searchQuery = req.body.searchQuery;
     const year = req.params.year
     const branch = req.params.branch
@@ -173,7 +173,7 @@ router.post("/search/:year/:branch", async (req, res) => {
                     year : year,
                     searchQuery: searchQuery,
                     pdfs : foundPdf,
-                    profile: profile
+                    authorProfile: authorProfile
                 });
             }
         });
@@ -192,7 +192,7 @@ router.post("/search/:year/:branch", async (req, res) => {
                     year : year,
                     searchQuery: searchQuery,
                     pdfs : foundPdf,
-                    profile: profile
+                    authorProfile: authorProfile
                 });
             }
         })
