@@ -37,6 +37,8 @@ router.get('/:id', ensureAuth , async (req,res)=>{
 
 })
 
+
+// Delete the pdf file
 router.post('/:pdfId', ensureAuth, async (req, res) => {
   try {
     await Pdfs.findByIdAndRemove(req.params.pdfId, async (err, docs) => {
@@ -57,6 +59,11 @@ router.post('/:pdfId', ensureAuth, async (req, res) => {
   } catch (err) {
     console.error(err)
   }
+})
+
+//Update the College
+router.post('/update/:id',ensureAuth,(req,res)=>{
+    
 })
 
 
