@@ -21,7 +21,11 @@ const UserSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  pdfs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Pdfs'
+  }]
 })
 
 module.exports = mongoose.model('User', UserSchema)

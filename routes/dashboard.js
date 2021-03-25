@@ -8,18 +8,24 @@ const Pdfs = require('../models/Pdfs')
 
 // @desc    dashboard of the respective college
 // @route   GET /dashboard/
+<<<<<<< HEAD
 router.get('/', ensureAuth, async (req, res) => {
 
   const profile = await User.findById(req.user.id)
-  const pdfs = await Pdfs.find({ college: req.user.collegeName })
+  // const pdfs = await Pdfs.find({ college: req.user.collegeName })
   // const allPeople = await User.find({collegeName : req.user.collegeName})
-  console.log(pdfs)
+  // console.log(pdfs)
 
+=======
+router.get('/', ensureAuth , async (req,res)=>{
+  req.params.college = req.user.collegeName;
+  const authorProfile = await User.findById(req.user.id)
+>>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
 
   res.render("dashboard", {
-    college: req.user.collegeName,
-    profile: profile
-  })
+      college : req.user.collegeName,
+      authorProfile : authorProfile
+    })
 
 })
 
@@ -32,8 +38,8 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
   const year = req.params.year
   const branch = req.params.branch
   const college = req.user.collegeName
-  const profile = await User.findById(req.user.id)
-  var result = branch.replace(/([A-Z])/g, " $1");
+  const authorProfile = await User.findById(req.user.id)
+  var result = branch.replace( /([A-Z])/g, " $1" );
   var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
   const br = `All Branches`
   // console.log(branch_sliced)
@@ -53,7 +59,7 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
         year: year,
         branch: branch,
         pdfs: pdfs,
-        profile: profile
+        authorProfile: authorProfile
       })
 
     } catch (err) {
@@ -67,12 +73,12 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
       const pdfs = await Pdfs.find({ college: college, year: year, branch: branch });
 
       res.render("category", {
-        branch_sliced: branch_sliced,
-        college: college,
-        branch: branch,
-        year: year,
-        pdfs: pdfs,
-        profile: profile
+        branch_sliced : branch_sliced,
+        college : college,
+        branch: branch,      
+        year : year,
+        pdfs : pdfs,
+        authorProfile: authorProfile
       })
 
     } catch (err) {
@@ -115,7 +121,7 @@ router.post('/:year/:branch', async (req, res) => {
 });
 
 //To upload the file
-router.post('/', ensureAuth, (req, res) => {
+router.post('/', ensureAuth, async (req, res) => {
   try {
     const driveUrl = req.body.driveUrl
     const title = req.body.title
@@ -134,11 +140,17 @@ router.post('/', ensureAuth, (req, res) => {
       createdAt: dateStr
     })
 
-    // console.log(pdf)
-
-    pdf.save((err) => {
+    await pdf.save((err) => {
       console.log(err);
     })
+
+    const profile = await User.findById(req.user.id)
+    profile.pdfs.push(pdf)
+
+    await profile.save((err)=>{
+      console.log(err)
+    })
+    console.log(profile)
 
     // res.redirect('/dashboard')
     res.send({status: "success"});
@@ -153,54 +165,54 @@ router.post('/', ensureAuth, (req, res) => {
 //=================Search routing====================================
 
 router.post("/search/:year/:branch", async (req, res) => {
-  const profile = await User.findById(req.user.id);
-  const searchQuery = req.body.searchQuery;
-  const year = req.params.year
-  const branch = req.params.branch
-  const college = req.user.collegeName
-  var result = branch.replace(/([A-Z])/g, " $1");
-  var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
-  // console.log(searchQuery);
+    const authorProfile = await User.findById(req.user.id);
+    const searchQuery = req.body.searchQuery;
+    const year = req.params.year
+    const branch = req.params.branch
+    const college = req.user.collegeName
+    var result = branch.replace( /([A-Z])/g, " $1" );
+    var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
+    // console.log(searchQuery);
 
-  if (year === "1") {
-    await Pdfs.find({ title: { $regex: `${searchQuery}`, $options: 'i' }, year: year, college: college }, (err, foundPdf) => {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        // console.log(foundPdf);
-        res.render("search", {
-          branch_sliced: branch_sliced,
-          college: college,
-          branch: branch,
-          year: year,
-          searchQuery: searchQuery,
-          pdfs: foundPdf,
-          profile: profile
+    if(year === "1") {
+        await Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, college: college}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                // console.log(foundPdf);
+                res.render("search", {
+                    branch_sliced : branch_sliced,
+                    college : college,
+                    branch: branch,      
+                    year : year,
+                    searchQuery: searchQuery,
+                    pdfs : foundPdf,
+                    authorProfile: authorProfile
+                });
+            }
         });
-      }
-    });
-  }
-  else {
-    await Pdfs.find({ title: { $regex: `${searchQuery}`, $options: 'i' }, year: year, branch: branch, college: college }, (err, foundPdf) => {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        // console.log(foundPdf);
-        res.render("search", {
-          branch_sliced: branch_sliced,
-          college: college,
-          branch: branch,
-          year: year,
-          searchQuery: searchQuery,
-          pdfs: foundPdf,
-          profile: profile
-        });
-      }
-    })
-  }
-
+    }
+    else {
+        await Pdfs.find({title: {$regex: `${searchQuery}`, $options: 'i'}, year: year, branch: branch, college: college}, (err, foundPdf) => {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                // console.log(foundPdf);
+                res.render("search", {
+                    branch_sliced : branch_sliced,
+                    college : college,
+                    branch: branch,      
+                    year : year,
+                    searchQuery: searchQuery,
+                    pdfs : foundPdf,
+                    authorProfile: authorProfile
+                });
+            }
+        })
+    }
+    
 })
 
 
