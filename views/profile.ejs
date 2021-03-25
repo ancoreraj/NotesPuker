@@ -42,7 +42,7 @@
 
         <ul class="navbar-nav navbar-nav-right">
           <!--User Profile Section -->
-          <%- include('partials/_userProfileSection',{profile : profile}); -%>
+          <%- include('partials/_userProfileSection',{authorProfile: authorProfile}); -%>
 
         </ul>
 
@@ -73,13 +73,13 @@
           <div class="card profile__main">
             <div class="profile__top d-flex">
               <div>
-                <h1><%=profile.displayName%></h1>
+                <h1><%=guestProfile.displayName%></h1>
                 <div class="d-flex">
-                  <h6><%=profile.collegeName%></h6>
+                  <h6><%=guestProfile.collegeName%></h6>
                   <h6 style="margin-left: 18px;"><%=pdfs.length%> Upload(s)</h6>
                 </div>
               </div>
-              <img src="<%=profile.image%>" alt="profile" />
+              <img src="<%=guestProfile.image%>" alt="profile" />
             </div>
           </div>
           <div class="profile__body">
