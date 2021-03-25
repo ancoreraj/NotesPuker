@@ -43,9 +43,15 @@
       <%- include('partials/_name_logo'); -%>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 
+<<<<<<< HEAD
           <ul class="navbar-nav navbar-nav-right">
             <!--User Profile Section -->
             <%- include('partials/_userProfileSection',{profile : profile}); -%>
+=======
+        <ul class="navbar-nav navbar-nav-right">
+          <!--User Profile Section -->
+          <%- include('partials/_userProfileSection',{authorProfile: authorProfile}); -%>
+>>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
 
           </ul>
 
@@ -67,6 +73,7 @@
       <!-- partial:partials/_sidebar.html -->
       <%- include('partials/_sidebar'); -%>
 
+<<<<<<< HEAD
         <!-- Main Panel Home  -->
         <!-- partial -->
         <div class="main-panel">
@@ -137,12 +144,31 @@
 
 
               
+=======
+      <!-- Main Panel Home  -->
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+
+          <!-- Home Top/ Welcome and all -->
+          <div class="card profile__main">
+            <div class="profile__top d-flex">
+              <div>
+                <h1><%=guestProfile.displayName%></h1>
+                <div class="d-flex">
+                  <h6><%=guestProfile.collegeName%></h6>
+                  <h6 style="margin-left: 18px;"><%=pdfs.length%> Upload(s)</h6>
+>>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
                 </div>
 
 
 
                 <img src="<%=profile.image%>" alt="profile" />
               </div>
+<<<<<<< HEAD
+=======
+              <img src="<%=guestProfile.image%>" alt="profile" />
+>>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
             </div>
 
             <div class="profile__body">

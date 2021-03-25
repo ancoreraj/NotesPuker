@@ -14,19 +14,22 @@ router.get('/:id', ensureAuth , async (req,res)=>{
         const guestId = req.params.id;
         const authorId = req.user.id;
         const guestProfile = await User.findById(guestId);
+        const authorProfile = await User.findById(authorId);
         const guestPdfs = await Pdfs.find({ user : guestId });
         console.log(guestProfile)
 
         if (guestId === authorId) {
             res.render("profile", {
-                profile: guestProfile,
+                guestProfile: guestProfile,
+                authorProfile: authorProfile,
                 pdfs: guestPdfs,
                 check: "true"
             });
         }
         else {
             res.render("profile", {
-                profile: guestProfile,
+                guestProfile: guestProfile,
+                authorProfile: authorProfile,
                 pdfs: guestPdfs,
                 check: "false"
             })
@@ -48,11 +51,12 @@ router.post('/:pdfId', ensureAuth, async (req, res) => {
             const profile = await User.findById(req.user.id);
             const pdfs = await Pdfs.find({ user : req.user.id});
             res.render("profile", {
-                profile: profile,
+                guestProfile: profile,
+                authorProfile: profile,
                 pdfs: pdfs,
                 check: "true"
             })
-            console.log(req.user.id);
+            // console.log(req.user.id);
         }
     })
 
