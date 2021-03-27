@@ -43,15 +43,9 @@
       <%- include('partials/_name_logo'); -%>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 
-<<<<<<< HEAD
-          <ul class="navbar-nav navbar-nav-right">
-            <!--User Profile Section -->
-            <%- include('partials/_userProfileSection',{profile : profile}); -%>
-=======
         <ul class="navbar-nav navbar-nav-right">
           <!--User Profile Section -->
           <%- include('partials/_userProfileSection',{authorProfile: authorProfile}); -%>
->>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
 
           </ul>
 
@@ -73,78 +67,6 @@
       <!-- partial:partials/_sidebar.html -->
       <%- include('partials/_sidebar'); -%>
 
-<<<<<<< HEAD
-        <!-- Main Panel Home  -->
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-
-            <!-- Home Top/ Welcome and all -->
-            <div class="card profile__main">
-              <div class="profile__top d-flex">
-                <div>
-                  <h1>
-                    <%=profile.displayName%>
-                  </h1>
-                  <div class="d-flex">
-                    <h6>
-                      <%=profile.collegeName%>
-                    </h6>
-                    <h6 style="margin-left: 18px;">
-                      <%=pdfs.length%> Upload(s)
-                    </h6>
-                  </div>
-
-                  <% if (check==="true" ) { %>
-                    <div>
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                        Update Your College
-                      </button>
-  
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Update Your college</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form action="/profile/update/" method="POST">
-                                <div class="form-group m-1">
-                                  <input class="form-control" type="text" name="college" list="colleges"
-                                    autocomplete="off" placeholder="Whats your College?" required>
-                                  <datalist id="colleges">
-                                    <option value="NIT Agartala">
-                                    <option value="NIT Silchar">
-                                    <option value="NIT Trichy">
-                                    <option value="NIT Warangal">
-                                    <option value="NIT Jaipur">
-                                  </datalist>
-  
-                                </div>
-                                <!-- <button type="submit" class="btn btn-danger">Light</button> -->
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  <button type="submit" class="btn btn-primary">Update</button>
-                                </div>
-                              </form>
-                            </div>
-                            
-  
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  <% } %>
-
-
-              
-=======
       <!-- Main Panel Home  -->
       <!-- partial -->
       <div class="main-panel">
@@ -158,17 +80,13 @@
                 <div class="d-flex">
                   <h6><%=guestProfile.collegeName%></h6>
                   <h6 style="margin-left: 18px;"><%=pdfs.length%> Upload(s)</h6>
->>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
                 </div>
 
 
 
-                <img src="<%=profile.image%>" alt="profile" />
+                
               </div>
-<<<<<<< HEAD
-=======
               <img src="<%=guestProfile.image%>" alt="profile" />
->>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
             </div>
 
             <div class="profile__body">

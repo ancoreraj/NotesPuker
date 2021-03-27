@@ -5,6 +5,8 @@ const _ = require('lodash')
 
 const User = require('../models/User')
 const Pdfs = require('../models/Pdfs')
+const Colleges = require('../models/Colleges')
+const { templateSettings } = require('lodash')
 
 // @desc    dashboard of the respective college
 // @route   GET /dashboard/
@@ -12,11 +14,34 @@ router.get('/', ensureAuth , async (req,res)=>{
   req.params.college = req.user.collegeName;
   const authorProfile = await User.findById(req.user.id)
 
-  res.render("dashboard", {
-      college : req.user.collegeName,
-      authorProfile : authorProfile
+    const arr = [];
+    await Colleges.findOne({collegeName: req.user.collegeName})
+    .populate('topPerformer')
+    .exec(async (err, foundCollege) => {
+        if(err) {
+            console.log(err);
+        }
+        else {
+            if(foundCollege !== null) {
+                const len = foundCollege.topPerformer.length;
+                
+                for(let i=0; i<len && i<3; ++i) {
+                    let profile = {
+                        "name": foundCollege.topPerformer[i].displayName,
+                        "id": foundCollege.topPerformer[i]._id,
+                        "pdfLength": foundCollege.topPerformer[i].pdfs.length
+                    };
+                    arr.push(profile);
+                
+                }
+            }
+        }
+        res.render("dashboard", {
+            college : req.user.collegeName,
+            authorProfile : authorProfile,
+            arr: arr
+          })
     })
-
 })
 
 
@@ -140,7 +165,51 @@ router.post('/', ensureAuth, async (req, res) => {
     await profile.save((err)=>{
       console.log(err)
     })
-    console.log(profile)
+    console.log("profile pdfs : " + profile.pdfs);
+
+    const collegeName = req.user.collegeName
+    await Colleges.findOne({collegeName: collegeName}, async (err, foundCollege) => {
+        if(err) {
+            console.log(err);
+        }
+        else {
+            const userId = req.user.id;
+            if(foundCollege === null) {
+                const college = new Colleges({
+                    collegeName: collegeName
+                })
+                college.topPerformer.push(userId);
+                console.log("new college schema topPerformer: " + college.topPerformer);
+                await college.save((err) => {
+                    console.log(err);
+                })
+            }
+            else {
+                const idx = foundCollege.topPerformer.indexOf(userId);
+                if(idx === -1) {
+                    foundCollege.topPerformer.push(userId);
+                }
+                await foundCollege.save((err) => {
+                    console.log(err);
+                })
+            }
+            console.log("foundCollege.topperformer: " + foundCollege.topPerformer);
+        }
+    })
+    await Colleges.findOne({collegeName: collegeName})
+    .populate('topPerformer')
+    .exec(async (err, foundCollege) => {
+        if(err) {
+            console.log(err);
+        }
+        else {
+            foundCollege.topPerformer.sort((a, b) => b.pdfs.length - a.pdfs.length);
+            await foundCollege.save((err) => {
+                console.log(err);
+            })
+            console.log("sorted topPerformer: " + foundCollege.topPerformer);
+        }
+    })
 
     // res.redirect('/dashboard')
     res.send({status: "success"});
