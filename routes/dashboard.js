@@ -8,19 +8,9 @@ const Pdfs = require('../models/Pdfs')
 
 // @desc    dashboard of the respective college
 // @route   GET /dashboard/
-<<<<<<< HEAD
-router.get('/', ensureAuth, async (req, res) => {
-
-  const profile = await User.findById(req.user.id)
-  // const pdfs = await Pdfs.find({ college: req.user.collegeName })
-  // const allPeople = await User.find({collegeName : req.user.collegeName})
-  // console.log(pdfs)
-
-=======
 router.get('/', ensureAuth , async (req,res)=>{
   req.params.college = req.user.collegeName;
   const authorProfile = await User.findById(req.user.id)
->>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
 
   res.render("dashboard", {
       college : req.user.collegeName,
