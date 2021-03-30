@@ -87,24 +87,17 @@
               <h4>Top Contributers</h4>
               <table class="table table-bordered">
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td><a class="profileUrl" href="#">Ankur</a></td>
-                    <td>50 uploads</td>
-
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td><a class="profileUrl" href="#">Rahul</a></td>
-                    <td>27 uploads</td>
-
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td><a class="profileUrl" href="#">Pramil</a></td>
-                    <td>16 uploads</td>
-
-                  </tr>
+                    <% if(arr.length === 0) { %>
+                        <h3>No user has started uploading notes!</h3>
+                    <% } else { %> 
+                        <% for(let i = 0; i < arr.length; i++) { %>  
+                            <tr>
+                                <th scope="row"><%= i + 1 %></th>
+                                <td><a class="profileUrl" href="/profile/<%= arr[i].id %>"><%= arr[i].name %></a></td>
+                                <td><%= arr[i].pdfLength %> uploads</td>
+                            </tr>
+                        <% } %> 
+                    <% } %> 
                 </tbody>
               </table>
             </div>
