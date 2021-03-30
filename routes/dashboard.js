@@ -5,27 +5,24 @@ const _ = require('lodash')
 
 const User = require('../models/User')
 const Pdfs = require('../models/Pdfs')
+const College = require('../models/College')
 
 // @desc    dashboard of the respective college
 // @route   GET /dashboard/
-<<<<<<< HEAD
-router.get('/', ensureAuth, async (req, res) => {
-
-  const profile = await User.findById(req.user.id)
-  // const pdfs = await Pdfs.find({ college: req.user.collegeName })
-  // const allPeople = await User.find({collegeName : req.user.collegeName})
-  // console.log(pdfs)
-
-=======
 router.get('/', ensureAuth , async (req,res)=>{
   req.params.college = req.user.collegeName;
   const authorProfile = await User.findById(req.user.id)
->>>>>>> 1a8d6b62e993418ac4abdde40935877dedbd7c7f
+
+  // const allUsers = await User.find({collegeName : req.user.collegeName})
+  // console.log(allUsers)
+
+  // allUsers.sort((a,b)=> (a.pdfs.length > a.pdfs.length) ? 1 : -1)
+  // console.log(allUsers)
 
   res.render("dashboard", {
       college : req.user.collegeName,
       authorProfile : authorProfile
-    })
+  })
 
 })
 
@@ -213,6 +210,20 @@ router.post("/search/:year/:branch", async (req, res) => {
         })
     }
     
+})
+
+//Secret Route
+router.get('/secret',ensureAuth , async(req,res)=>{
+  const profile = await User.find({collegeName : req.user.collegeName})
+  // console.log(profile.displayName)
+  profile.forEach((pro)=>{
+    console.log(pro.displayName)
+    console.log(pro.pdfs.length)
+  })
+
+
+  res.redirect('/dashboard')
+
 })
 
 

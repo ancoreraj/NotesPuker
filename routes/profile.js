@@ -5,6 +5,7 @@ const { findById } = require('../models/User')
 
 const User = require('../models/User')
 const Pdfs = require('../models/Pdfs')
+const { read } = require('fs-extra')
 
 // // @desc    Profile of the authenticated person
 // // @route   GET /profile/userid
@@ -66,8 +67,30 @@ router.post('/:pdfId', ensureAuth, async (req, res) => {
 })
 
 //Update the College
-router.post('/update/:id',ensureAuth,(req,res)=>{
+router.post('/update/:id',ensureAuth,async(req,res)=>{
+    const authorProfile = req.params.id
+    const updatedCollege = req.body.college
+
+    const author = await User.findById(authorProfile)
+   
+
+   author.collegeName = updatedCollege
+
+   author.save((err)=>{
+       if(err) {
+           console.log(err)
+
+       }else{
+           res.redirect('/dashboard')
+       }
+   })
+   
+
     
+
+
+
+
 })
 
 
