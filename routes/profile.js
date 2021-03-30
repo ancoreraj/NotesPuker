@@ -5,12 +5,8 @@ const { findById } = require('../models/User')
 
 const User = require('../models/User')
 const Pdfs = require('../models/Pdfs')
-<<<<<<< HEAD
-const { read } = require('fs-extra')
-=======
 const { Types } = require('mongoose')
 const Colleges = require('../models/Colleges')
->>>>>>> d0e529886f02f01a8978cb93262c2dbe2b574a1a
 
 // // @desc    Profile of the authenticated person
 // // @route   GET /profile/userid
