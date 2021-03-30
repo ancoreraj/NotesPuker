@@ -84,6 +84,7 @@
                 <h5>To share and download your pdfs and notes, navigate to navbar.</h5>
               </div>
 
+<<<<<<< HEAD
               <div class="card dashboard__topContributer">
                 <h4>Top Contributers</h4>
                 <table class="table table-bordered">
@@ -109,6 +110,26 @@
                   </tbody>
                 </table>
               </div>
+=======
+            <div class="card dashboard__topContributer">
+              <h4>Top Contributers</h4>
+              <table class="table table-bordered">
+                <tbody>
+                    <% if(arr.length === 0) { %>
+                        <h3>No user has started uploading notes!</h3>
+                    <% } else { %> 
+                        <% for(let i = 0; i < arr.length; i++) { %>  
+                            <tr>
+                                <th scope="row"><%= i + 1 %></th>
+                                <td><a class="profileUrl" href="/profile/<%= arr[i].id %>"><%= arr[i].name %></a></td>
+                                <td><%= arr[i].pdfLength %> uploads</td>
+                            </tr>
+                        <% } %> 
+                    <% } %> 
+                </tbody>
+              </table>
+            </div>
+>>>>>>> d0e529886f02f01a8978cb93262c2dbe2b574a1a
 
               <div id="form" data-aos="zoom-in-up" class="card category__uploadForm mt-2">
                 <div class="card-body">
