@@ -1,10 +1,18 @@
 .category__main{
-    
+    font-family: 'Poppins', sans-serif !important;
     width: 70%;
 }
 .category__top{
     padding: 10px;
     text-align: center;
+    background-color: #26323f;
+}
+.category__top h2{
+    color: white; 
+}
+.category__top h5{
+    color: white; 
+    
 }
 .category__topDetail{
     margin: auto;
@@ -21,7 +29,7 @@
 }
 .category__searchFiles{
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .category__searchFiles input{
     margin-right: 5px;
@@ -29,11 +37,11 @@
 }
 .category__allFiles{
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .category__file{
-    margin: 15px;
+    margin: 5px;
     padding: 15px 10px 10px 10px;
 }
 .category__file h3{
@@ -68,10 +76,54 @@
 }
 
 
+.sidebar-css{
+    box-shadow: 0px 0px 6px 1px #cccccc;
+    border: none;
+    background-color: #1f2833 !important;
+    color: white !important;
+    /* padding: 25px 0px !important; */
+
+}
+
+.sidebar-css a{
+    color: white !important;
+    text-decoration: none !important;
+    
+}
+.sidebar-css li{
+    border: none !important;
+}
+.sidebar-css i{
+    color: #ff7940 !important;
+}
+.sidebar-css span{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.box-shadow-1{
+    box-shadow: 0px 0px 12px 5px #9aa3ac;
+}
+.box-shadow-2{
+    box-shadow: 0px 0px 5px 5px #d4e0eb;
+}
+.box-shadow-nav{
+    box-shadow: 10px 0px 5px 2px #9aa3ac;
+}
+
+
+.homeBg{
+   background-color: #dfe5eb;
+    
+
+}
 
 @media only screen and (max-width:900px) {
     .category__main{
         width: 100%;
+    }
+    .pageWrapperP{
+        padding: 20px 5px;
     }
 
 }

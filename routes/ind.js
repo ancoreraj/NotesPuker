@@ -14,22 +14,6 @@ router.get('/collegeinput', ensureAuth ,(req,res)=>{
   res.render("collegeInput", {name: req.user.displayName })
 })
 
-router.get('/lp', (req, res) => {
-  res.render("LandingPage")
-})
-router.get('/db', (req, res) => {
-  res.render("dashboard")
-})
-router.get('/pro', (req, res) => {
-  res.render("profile")
-})
-router.get('/cat', (req, res) => {
-  res.render("category")
-})
-router.get('/ci', (req, res) => {
-  res.render("collegeInput")
-})
-
 
 router.post('/collegeinput', ensureAuth, (req, res) => {
   try {

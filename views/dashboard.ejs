@@ -5,7 +5,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>College Space</title>
+  <title>AncoreNotes</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
   <!-- plugins:css -->
   <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="/vendors/base/vendor.bundle.base.css">
@@ -18,7 +22,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  
+
   <link rel="stylesheet" href="/pages_css/dashboard.css">
   <!-- endinject -->
   <!-- <link rel="shortcut icon" href="images/favicon.png" /> -->
@@ -35,7 +39,7 @@
 </head>
 
 <body>
-  <div class="container-scroller">
+  <div class="container-scroller font-class">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 
@@ -43,125 +47,128 @@
       <%- include('partials/_name_logo'); -%>
 
 
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end box-shadow-nav">
 
-        <ul class="navbar-nav navbar-nav-right">
+          <ul class="navbar-nav navbar-nav-right">
 
-          <!--User Profile Section -->
-          <%- include('partials/_userProfileSection', {authorProfile: authorProfile}); -%>
+            <!--User Profile Section -->
+            <%- include('partials/_userProfileSection', {authorProfile: authorProfile}); -%>
 
-        </ul>
+          </ul>
 
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
-          <span class="mdi mdi-menu"></span>
-        </button>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
 
-      </div>
+        </div>
 
     </nav>
 
 
 
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper px-0">
 
       <!-- SideBar -->
       <!-- partial:partials/_sidebar.html -->
       <%- include('partials/_sidebar'); -%>
 
-      <!-- Main Panel Home  -->
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
+        <!-- Main Panel Home  -->
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper pageWrapperP homeBg">
 
-          <!-- Home Top/ Welcome and all -->
-          <div class="dashboard__main">
+            <!-- Home Top/ Welcome and all -->
+            <div class="dashboard__main">
 
-            <div class="card dashboard__top">
-              <h1>Welcome to <%= college %></h1>
-              <h5>To share and download your pdfs and notes, navigate to navbar.</h5>
-            </div>
-
-            <div class="card dashboard__topContributer">
-              <h4>Top Contributers</h4>
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td><a class="profileUrl" href="#">Ankur</a></td>
-                    <td>50 uploads</td>
-
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td><a class="profileUrl" href="#">Rahul</a></td>
-                    <td>27 uploads</td>
-
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td><a class="profileUrl" href="#">Pramil</a></td>
-                    <td>16 uploads</td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div id="form" data-aos="zoom-in-up" class="card category__uploadForm mt-2">
-              <div class="card-body">
-                <h4 class="mb-3">Enter the details to upload your own notes</h4>
-                <form id="uploadForm" name="my-form" class="forms-sample" action="/dashboard/uploadfile" method="POST">
-                  <div class="form-group">
-                    <input type="text" name="title" class="form-control" id="exampleInputUsername1" placeholder="Enter a suitable title for your upload."  autocomplete="off" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="driveUrl" class="form-control" id="exampleInputEmail1" placeholder="Google Drive Shareable link"  autocomplete="off" required>
-                  </div>
-                  <div class="category__uploadFormBottom">
-                    <div class="form-group w-100 mr-2">
-                      <label for="exampleFormControlSelect1">Year</label>
-                      <select name="year" class="form-control" id="exampleFormControlSelect1" required>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-              
-                      </select>
-                    </div>
-                    <div class="form-group w-100 ml-2">
-                      <label for="exampleFormControlSelect1">Branch</label>
-                      <select name="branch" class="form-control" id="exampleFormControlSelect1" required>
-                        <option>BioTech Engineering</option>
-                        <option>Civil Engineering</option>
-                        <option>Computer Science And Engineering</option>
-                        <option>Chemical Engineering</option>
-                        <option>Electrical Engineering</option>
-                        <option>Electronics And Communication Engineering</option>
-                        <option>Mechanical Engineering</option>
-                        <option>Production Engineering</option>
-                        <option>Electronics And Instrumation Engineering</option>
-                      </select>
-                    </div>
-
-                  </div>
-                  
-                  <div class="card category__upload">
-                    <button id="pop-btn" type="submit" class="btn btn-danger btn-icon-text">
-                      <i class="mdi mdi-upload btn-icon-prepend"></i>
-                      Upload your file
-                    </button>
-                  </div>
-                  <!-- <button type="submit" class="btn btn-danger mr-2">Submit</button>
-                  <button id="cancel" class="btn btn-light">Cancel</button> -->
-                </form>
+              <div class="card dashboard__top box-shadow-1">
+                <h1 class="">Welcome to <%= college %>
+                </h1>
+                <h5 class="">To share and download your pdfs and notes, navigate to navbar.</h5>
               </div>
-            </div>
 
-            
+              <div class="card dashboard__topContributer box-shadow-2">
+                <h4 class="">Top Contributers</h4>
+                <table class="table table-bordered">
+                  <tbody>
+                    <% if(arr.length===0) { %>
+                      <h3 class="">No user has started uploading notes!</h3>
+                      <% } else { %>
+                        <% for(let i=0; i < arr.length; i++) { %>
+                          <tr>
+                            <th scope="row">
+                              <%= i + 1 %>
+                            </th>
+                            <td><a class="profileUrl" href="/profile/<%= arr[i].id %>">
+                                <%= arr[i].name %>
+                              </a></td>
+                            <td>
+                              <%= arr[i].pdfLength %> uploads
+                            </td>
+                          </tr>
+                          <% } %>
+                            <% } %>
+                  </tbody>
+                </table>
+              </div>
 
-            <!-- <div class="card dashboard__collegeQuora">
+              <div id="form" data-aos="zoom-in-up" class="card category__uploadForm box-shadow-2">
+                <div class="card-body">
+                  <h4 class="mb-3">Enter the details to upload your own notes</h4>
+                  <form id="uploadForm" name="my-form" class="forms-sample" action="/dashboard/uploadfile"
+                    method="POST">
+                    <div class="form-group">
+                      <input type="text" name="title" class="form-control" id="exampleInputUsername1"
+                        placeholder="Enter a suitable title for your upload." autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="driveUrl" class="form-control" id="exampleInputEmail1"
+                        placeholder="Google Drive Shareable link" autocomplete="off" required>
+                    </div>
+                    <div class="category__uploadFormBottom">
+                      <div class="form-group w-100 mr-2">
+                        <label for="exampleFormControlSelect1">Year</label>
+                        <select name="year" class="form-control" id="exampleFormControlSelect1" required>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+
+                        </select>
+                      </div>
+                      <div class="form-group w-100 ml-2">
+                        <label for="exampleFormControlSelect1">Branch</label>
+                        <select name="branch" class="form-control" id="exampleFormControlSelect1" required>
+                          <option>BioTech Engineering</option>
+                          <option>Civil Engineering</option>
+                          <option>Computer Science And Engineering</option>
+                          <option>Chemical Engineering</option>
+                          <option>Electrical Engineering</option>
+                          <option>Electronics And Communication Engineering</option>
+                          <option>Mechanical Engineering</option>
+                          <option>Production Engineering</option>
+                          <option>Electronics And Instrumation Engineering</option>
+                        </select>
+                      </div>
+
+                    </div>
+
+                    <div class="card category__upload">
+                      <button id="pop-btn" type="submit" class="btn btn-danger btn-icon-text">
+                        <i class="mdi mdi-upload btn-icon-prepend"></i>
+                        Upload your file
+                      </button>
+                    </div>
+                    <!-- <button type="submit" class="btn btn-danger mr-2">Submit</button>
+                  <button id="cancel" class="btn btn-light">Cancel</button> -->
+                  </form>
+                </div>
+              </div>
+
+
+
+              <!-- <div class="card dashboard__collegeQuora">
               <h4>NIT Agartala Quora</h4>
               <div class="dashboard__quoraInputQuestion">
                 <form action="" class="d-flex">
@@ -179,23 +186,24 @@
 
             </div> -->
 
+            </div>
+
+
           </div>
-
-
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © College Space</span>
-            <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © College
+                Space</span>
+              <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
                 href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from
               Bootstrapdash.com</span> -->
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
   </div>
@@ -248,43 +256,44 @@
   <!-- End custom js for this page-->
   <script src="/js/jquery.cookie.js" type="text/javascript"></script>
 
-    <!-- jQuery for uploading pdf  -->
-    <script>
-        function isValidURL(url) {
-            var res = url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%.\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%\+.~#?&//=]*)/g);
-            return (res !== null)
-        };
 
-        $("#uploadForm").on("submit", (e) => {
-            e.preventDefault();
+  <!-- jQuery for uploading pdf  -->
+  <script>
+    function isValidURL(url) {
+      var res = url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%.\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%\+.~#?&//=]*)/g);
+      return (res !== null)
+    };
 
-            const driveUrl = $("#exampleInputEmail1").val();
-            console.log(driveUrl);
-            if(isValidURL(driveUrl)) {
-                $.ajax({
-                    data: $("#uploadForm").serialize(),
-                    type: 'post',
-                    url: "/dashboard",
-                    success: (result) => {
-                        // console.log(result.status);
-                        alert("Your notes has been uploaded successfully. Thank you for your contribution.")
-                        document.forms["my-form"].reset();
-                    },
-                    error: (err) => {
-                        alert("Some error occured while uploading your notes. Sorry for inconvenience !")
-                        document.forms["my-form"].reset();
-                    }
-                });
-            }
-            else {
-                alert("Given drive url is not a valid url. Enter correct url.");
-                $("#exampleInputEmail1").val('');
-            }
-        })    
-    </script>
+    $("#uploadForm").on("submit", (e) => {
+      e.preventDefault();
 
-    <!-- bootstrap script -->
-   
+      const driveUrl = $("#exampleInputEmail1").val();
+      console.log(driveUrl);
+      if (isValidURL(driveUrl)) {
+        $.ajax({
+          data: $("#uploadForm").serialize(),
+          type: 'post',
+          url: "/dashboard",
+          success: (result) => {
+            // console.log(result.status);
+            alert("Your notes has been uploaded successfully. Thank you for your contribution.")
+            document.forms["my-form"].reset();
+          },
+          error: (err) => {
+            alert("Some error occured while uploading your notes. Sorry for inconvenience !")
+            document.forms["my-form"].reset();
+          }
+        });
+      }
+      else {
+        alert("Given drive url is not a valid url. Enter correct url.");
+        $("#exampleInputEmail1").val('');
+      }
+    })
+  </script>
+
+  <!-- bootstrap script -->
+
 </body>
 
 </html>

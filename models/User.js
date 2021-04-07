@@ -24,7 +24,8 @@ const UserSchema = new mongoose.Schema({
   },
   pdfs: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Pdfs'
+    ref: 'Pdfs',
+    default: []
   }]
 })
 

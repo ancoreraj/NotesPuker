@@ -1,17 +1,65 @@
 .profile__main{
+    font-family: 'Poppins', sans-serif !important;
     width: 70%;
 }
 .profile__top{
     padding: 20px;
     justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    background-color: #26323f;
+}
+.profile__top h1,h6{
+    color: white;
+    font-weight: 400;
 }
 
 .profile__body{
     margin-top: 15px;
-    width: 70%;
+    width: 100%;
 }
 
 
+.sidebar-css{
+    box-shadow: 0px 0px 6px 1px #cccccc;
+    border: none;
+    background-color: #1f2833 !important;
+    color: white !important;
+    /* padding: 25px 0px !important; */
+
+}
+
+.sidebar-css a{
+    color: white !important;
+    text-decoration: none !important;
+    
+}
+.sidebar-css li{
+    border: none !important;
+}
+.sidebar-css i{
+    color: #ff7940 !important;
+}
+.sidebar-css span{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.box-shadow-1{
+    box-shadow: 0px 0px 12px 5px #9aa3ac;
+}
+.box-shadow-2{
+    box-shadow: 0px 0px 5px 5px #d4e0eb;
+}
+.box-shadow-nav{
+    box-shadow: 10px 0px 5px 2px #9aa3ac;
+}
+
+.homeBg{
+   background-color: #dfe5eb;
+    
+
+}
 
 @media only screen and (max-width:900px) {
     .profile__main{
@@ -19,6 +67,9 @@
     }
     .profile__body{
         width: 100%;
+    }
+    .pageWrapperP{
+        padding: 20px 5px;
     }
 
 }

@@ -5,7 +5,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>College Space</title>
+  <title>AncoreNotes</title>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+  rel="stylesheet">
   <!-- plugins:css -->
   <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="/vendors/base/vendor.bundle.base.css">
@@ -42,7 +45,7 @@
       <!-- Name and Logo Section -->
       <%- include('partials/_name_logo'); -%>
 
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end box-shadow-nav">
 
           <ul class="navbar-nav navbar-nav-right">
 
@@ -63,7 +66,7 @@
 
 
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper px-0">
 
       <!-- SideBar -->
       <!-- partial:partials/_sidebar.html -->
@@ -72,11 +75,11 @@
         <!-- Main Panel Home  -->
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper pageWrapperP homeBg">
 
             <!-- Home Top/ Welcome and all -->
             <div class="category__main">
-              <div class="card category__top">
+              <div class="card category__top box-shadow-1">
 
                 <%if(year === '1'){%>
                   <h2>1st year</h2>
@@ -113,11 +116,11 @@
               </div>
 
 
-              <div class="card category__searchFiles">
+              <div class="card category__searchFiles box-shadow-2">
                 <h2>Search results for "<%= searchQuery %>"</h2>
               </div>
 
-              <div class="card category__allFiles">
+              <div class="card category__allFiles box-shadow-2">
 
                 <% if(pdfs.length==0){ %>
                   <h3 class="text-danger">We're sorry. No results found !</h3>
@@ -143,15 +146,15 @@
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <footer class="footer">
+          <!-- <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © College
                 Space</span>
-              <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
                 href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from
-              Bootstrapdash.com</span> -->
+              Bootstrapdash.com</span>
             </div>
-          </footer>
+          </footer> -->
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
