@@ -47,7 +47,7 @@
       <%- include('partials/_name_logo'); -%>
 
 
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end box-shadow-nav">
 
           <ul class="navbar-nav navbar-nav-right">
 
@@ -82,13 +82,13 @@
             <!-- Home Top/ Welcome and all -->
             <div class="dashboard__main">
 
-              <div class="card dashboard__top">
+              <div class="card dashboard__top box-shadow-1">
                 <h1 class="">Welcome to <%= college %>
                 </h1>
                 <h5 class="">To share and download your pdfs and notes, navigate to navbar.</h5>
               </div>
 
-              <div class="card dashboard__topContributer">
+              <div class="card dashboard__topContributer box-shadow-2">
                 <h4 class="">Top Contributers</h4>
                 <table class="table table-bordered">
                   <tbody>
@@ -113,7 +113,7 @@
                 </table>
               </div>
 
-              <div id="form" data-aos="zoom-in-up" class="card category__uploadForm">
+              <div id="form" data-aos="zoom-in-up" class="card category__uploadForm box-shadow-2">
                 <div class="card-body">
                   <h4 class="mb-3">Enter the details to upload your own notes</h4>
                   <form id="uploadForm" name="my-form" class="forms-sample" action="/dashboard/uploadfile"

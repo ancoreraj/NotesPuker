@@ -44,7 +44,7 @@
 
       <!-- Name and Logo Section -->
       <%- include('partials/_name_logo'); -%>
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end box-shadow-nav">
 
         <ul class="navbar-nav navbar-nav-right">
           <!--User Profile Section -->
@@ -73,12 +73,12 @@
         <!-- Main Panel Home  -->
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper pageWrapperP">
+          <div class="content-wrapper pageWrapperP homeBg">
 
             <!-- Home Top/ Welcome and all -->
-            <div class="card profile__main">
-              <div class="profile__top d-flex">
-                <div>
+            <div class="profile__main">
+              <div class="card profile__top box-shadow-1">
+                <div class="">
                   <h1>
                     <%=guestProfile.displayName%>
                   </h1>
@@ -89,6 +89,7 @@
                     <h6 style="margin-left: 18px;">
                       <%=pdfs.length%> Upload(s)
                     </h6>
+                    
 
                   </div>
 
@@ -145,9 +146,19 @@
 
 
                   </div>
+                  
+
+                  
+                  
 
                 </div>
-                <img src="<%=guestProfile.image%>" alt="profile" />
+
+                <div class="">
+
+                  <img src="<%=guestProfile.image%>" alt="profile" />
+
+                </div>
+
               </div>
 
               <div class="profile__body">
@@ -158,7 +169,7 @@
 
 
 
-                <div class="card category__allFiles">
+                <div class="card category__allFiles box-shadow-2">
 
                   <% if(pdfs.length==0){ %>
                     <h2>No notes have been uploaded yet.</h2>
@@ -207,17 +218,18 @@
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © College
-                  Space</span>
-                <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
-                href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from
-              Bootstrapdash.com</span> -->
-              </div>
-            </footer>
+            
             <!-- partial -->
           </div>
+          <!-- <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © College
+                Space</span>
+               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+              href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from
+            Bootstrapdash.com</span>
+            </div>
+          </footer> -->
           <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->
