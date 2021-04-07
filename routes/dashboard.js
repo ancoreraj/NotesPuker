@@ -64,9 +64,9 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
     try {
       const pdfs = await Pdfs.find({ college: college, year: year });
 
-      pdfs.forEach((pdf) => {
-        console.log(pdf.user.firstName)
-      })
+      // pdfs.forEach((pdf) => {
+      //   console.log(pdf.user.firstName)
+      // })
 
       res.render("category", {
         branch_sliced: branch_sliced,
@@ -274,19 +274,6 @@ router.post("/search/:year/:branch", async (req, res) => {
     
 })
 
-//Secret Route
-router.get('/secret',ensureAuth , async(req,res)=>{
-  const profile = await User.find({collegeName : req.user.collegeName})
-  // console.log(profile.displayName)
-  profile.forEach((pro)=>{
-    console.log(pro.displayName)
-    console.log(pro.pdfs.length)
-  })
-
-
-  res.redirect('/dashboard')
-
-})
 
 
 

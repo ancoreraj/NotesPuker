@@ -6,6 +6,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>AncoreNotes</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
   <!-- plugins:css -->
   <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="/vendors/base/vendor.bundle.base.css">
@@ -35,7 +39,7 @@
 </head>
 
 <body>
-  <div class="container-scroller">
+  <div class="container-scroller font-class">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 
@@ -64,7 +68,7 @@
 
 
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper px-0">
 
       <!-- SideBar -->
       <!-- partial:partials/_sidebar.html -->
@@ -73,37 +77,43 @@
         <!-- Main Panel Home  -->
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper pageWrapperP homeBg">
 
             <!-- Home Top/ Welcome and all -->
             <div class="dashboard__main">
 
               <div class="card dashboard__top">
-                <h1>Welcome to <%= college %>
+                <h1 class="">Welcome to <%= college %>
                 </h1>
-                <h5>To share and download your pdfs and notes, navigate to navbar.</h5>
+                <h5 class="">To share and download your pdfs and notes, navigate to navbar.</h5>
               </div>
 
-            <div class="card dashboard__topContributer">
-              <h4>Top Contributers</h4>
-              <table class="table table-bordered">
-                <tbody>
-                    <% if(arr.length === 0) { %>
-                        <h3>No user has started uploading notes!</h3>
-                    <% } else { %> 
-                        <% for(let i = 0; i < arr.length; i++) { %>  
-                            <tr>
-                                <th scope="row"><%= i + 1 %></th>
-                                <td><a class="profileUrl" href="/profile/<%= arr[i].id %>"><%= arr[i].name %></a></td>
-                                <td><%= arr[i].pdfLength %> uploads</td>
-                            </tr>
-                        <% } %> 
-                    <% } %> 
-                </tbody>
-              </table>
-            </div>
+              <div class="card dashboard__topContributer">
+                <h4 class="">Top Contributers</h4>
+                <table class="table table-bordered">
+                  <tbody>
+                    <% if(arr.length===0) { %>
+                      <h3 class="">No user has started uploading notes!</h3>
+                      <% } else { %>
+                        <% for(let i=0; i < arr.length; i++) { %>
+                          <tr>
+                            <th scope="row">
+                              <%= i + 1 %>
+                            </th>
+                            <td><a class="profileUrl" href="/profile/<%= arr[i].id %>">
+                                <%= arr[i].name %>
+                              </a></td>
+                            <td>
+                              <%= arr[i].pdfLength %> uploads
+                            </td>
+                          </tr>
+                          <% } %>
+                            <% } %>
+                  </tbody>
+                </table>
+              </div>
 
-              <div id="form" data-aos="zoom-in-up" class="card category__uploadForm mt-2">
+              <div id="form" data-aos="zoom-in-up" class="card category__uploadForm">
                 <div class="card-body">
                   <h4 class="mb-3">Enter the details to upload your own notes</h4>
                   <form id="uploadForm" name="my-form" class="forms-sample" action="/dashboard/uploadfile"

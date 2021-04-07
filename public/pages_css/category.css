@@ -1,5 +1,5 @@
 .category__main{
-    
+    font-family: 'Poppins', sans-serif !important;
     width: 70%;
 }
 .category__top{
@@ -72,6 +72,9 @@
 @media only screen and (max-width:900px) {
     .category__main{
         width: 100%;
+    }
+    .pageWrapperP{
+        padding: 20px 5px;
     }
 
 }

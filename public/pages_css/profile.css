@@ -1,4 +1,5 @@
 .profile__main{
+    font-family: 'Poppins', sans-serif !important;
     width: 70%;
 }
 .profile__top{
@@ -19,6 +20,9 @@
     }
     .profile__body{
         width: 100%;
+    }
+    .pageWrapperP{
+        padding: 20px 5px;
     }
 
 }

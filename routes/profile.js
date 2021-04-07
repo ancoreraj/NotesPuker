@@ -18,7 +18,7 @@ router.get('/:id', ensureAuth , async (req,res)=>{
         const guestProfile = await User.findById(guestId);
         const authorProfile = await User.findById(authorId);
         const guestPdfs = await Pdfs.find({ user : guestId });
-        console.log(guestProfile)
+        // console.log(guestProfile)
 
         if (guestId === authorId) {
             res.render("profile", {
@@ -37,6 +37,7 @@ router.get('/:id', ensureAuth , async (req,res)=>{
             })
         }
     }catch(err){
+        console.log(err)
 
     }
 

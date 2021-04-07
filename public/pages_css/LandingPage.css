@@ -1,6 +1,7 @@
 body{
     margin: 0;
-    padding: 0;;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 header{
@@ -33,6 +34,7 @@ header{
 .lp__body h1{
     margin-top: 45px;
     color: whitesmoke;
+    /* color: #293e40; */
 }
 
 
@@ -40,11 +42,15 @@ header{
     margin-top: 75px;
     display: flex;
     justify-content: center;
+    /* color: white !important; */
 }
 
 .lp__bodyLogin input{
     width: 500px;
 }
+/* .lp__bodyLogin a{
+    color: white;
+} */
 .lp__bodyLogin p{
     margin: 0px;
 }

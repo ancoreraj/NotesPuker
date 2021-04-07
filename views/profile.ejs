@@ -6,6 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>AncoreNotes</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
   <!-- plugins:css -->
   <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="/vendors/base/vendor.bundle.base.css">
@@ -61,7 +64,7 @@
 
 
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper px-0">
 
       <!-- SideBar -->
       <!-- partial:partials/_sidebar.html -->
@@ -70,7 +73,7 @@
         <!-- Main Panel Home  -->
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper pageWrapperP">
 
             <!-- Home Top/ Welcome and all -->
             <div class="card profile__main">
@@ -177,7 +180,7 @@
                               </p>
                               <% if (check==="true" ) { %>
                                 <form class="dlForm" action="/profile/<%=pdf._id%>" method="POST">
-                                  <button type="submit">
+                                  <button type="submit" class="btn btn-primary">
                                     Delete
                                   </button>
                                 </form>
