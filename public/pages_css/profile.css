@@ -18,6 +18,18 @@
     margin-top: 15px;
     width: 100%;
 }
+.profile-img {
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px 2px #1f2833;
+    border: 10px solid #314052;
+}
+.profile-img img{
+    border-radius: 50%;
+    
+    box-shadow: 0px 0px 6px 2px #1f2833;
+}
 
 
 .sidebar-css{
@@ -58,6 +70,10 @@
 .homeBg{
    background-color: #dfe5eb;
     
+
+}
+.user-profile i{
+    color: #ff7940 !important;
 
 }
 

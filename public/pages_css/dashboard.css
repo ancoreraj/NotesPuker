@@ -102,7 +102,10 @@ input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 .box-shadow-nav{
     box-shadow: 10px 0px 5px 2px #9aa3ac;
 }
+.user-profile i{
+    color: #ff7940 !important;
 
+}
 .homeBg{
    background-color: #dfe5eb;
     

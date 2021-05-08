@@ -117,6 +117,10 @@
     
 
 }
+.user-profile i{
+    color: #ff7940 !important;
+
+}
 
 @media only screen and (max-width:900px) {
     .category__main{
