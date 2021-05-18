@@ -1,12 +1,11 @@
 {
-  "name": "storybooks",
-  "version": "1.0.0",
+  "name": "AncoreNotes",
+  "version": "",
   "description": "App for creating public and private stories",
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development nodemon app",
-    "postinstall": "node ./scripts/post-install.js"
+    "dev": "cross-env NODE_ENV=development nodemon app"
   },
   "author": "Ankur Raj",
   "license": "MIT",
