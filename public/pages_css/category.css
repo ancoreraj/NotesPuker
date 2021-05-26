@@ -122,6 +122,11 @@
 
 }
 
+.status {
+    background-color: #1f2833;
+    color: white;
+}
+
 @media only screen and (max-width:900px) {
     .category__main{
         width: 100%;
