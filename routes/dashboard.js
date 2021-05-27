@@ -109,25 +109,32 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
 // Like feature
 router.post('/:year/:branch', async (req, res) => {
   try {
-    const userId = req.body.id
-    const title = req.body.title
-    await Pdfs.findOne({ user: userId, title: title }, (err, foundPdf) => {
+    // const userId = req.body.id
+    // const title = req.body.title
+    const pdfId = req.body.pdfId
+    const currUser = req.user.id;
+    await Pdfs.findOne({ _id: pdfId }, (err, foundPdf) => {
       if (err) {
         console.log(err);
       }
       else {
-        const currUser = req.user.id;
+        // const currUser = req.user.id;
+        const currLen = foundPdf.upvotes.length
+        var newLen = currLen
         if (foundPdf.upvotes.indexOf(currUser) === -1) {
-          foundPdf.upvotes.push(req.user.id)
+          foundPdf.upvotes.push(currUser)
+          newLen++;
         }
         else {
-          index = foundPdf.upvotes.indexOf(currUser);
+          const index = foundPdf.upvotes.indexOf(currUser);
           foundPdf.upvotes.splice(index, 1);
+          newLen--;
         }
         foundPdf.save((err) => {
           console.log(err);
         });
-        res.send({ upvoteCount: foundPdf.upvotes.length })
+        const upvoteStatus = (newLen > currLen) ? true : false;
+        res.send({ upvoteCount: foundPdf.upvotes.length, upvoteStatus: upvoteStatus })
       }
     });
   } catch (err) {
