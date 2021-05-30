@@ -156,7 +156,7 @@
 
                 <div class="profile-img">
 
-                  <img src="<%=guestProfile.image%>" alt="profile" />
+                  <img class="img-fluid" src="<%=guestProfile.image%>" alt="profile" />
 
                 </div>
 
@@ -178,7 +178,7 @@
                       <% pdfs.forEach((pdf)=>{ %>
 
                         <div class="card category__file">
-                          <h3>
+                          <h3 class="category__fileTitle">
                             <%=pdf.title%>
                           </h3>
                           <div class="category__fileBottom">
@@ -187,7 +187,7 @@
                               <p class="category__fileBottom__p">
                                 <a type="submit" class="profileUrl" href="<%=pdf.driveUrl%>" target="_blank">
                                   <i class="mdi mdi-download"></i>
-                                  Download
+                                  <span>Download</span>
                                 </a>
                               </p>
                               <% if (check==="true" ) { %>

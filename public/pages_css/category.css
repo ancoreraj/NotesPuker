@@ -44,14 +44,15 @@
     margin: 5px;
     padding: 15px 10px 10px 10px;
 }
-.category__file h3{
+.category__fileTitle{
     padding-left: 10px;
+    font-size: 25px;
 }
 .category__fileBottom{
     display: flex;
     justify-content: space-between;
 }
-.category__fileBottom .category__fileBottom__p{
+.category__fileBottom__p{
     /* padding-bottom: 0px !important; */
     cursor: pointer;
     padding: 3px 5px;
@@ -63,7 +64,7 @@
 }
 
 .category__fileBottomDate{
-    
+    text-align: center;
 }
 .category__fileBottomDate p{
     border: none;
@@ -132,6 +133,16 @@
     }
     .pageWrapperP{
         padding: 20px 5px;
+    }
+    .category__displayNone{
+        display: none !important;
+    }
+    .category__fileBottom__p{
+        padding: 3px 15px;
+    }
+    .category__fileTitle{
+        padding-left: 10px;
+        font-size: 22px;
     }
 
 }
