@@ -185,15 +185,16 @@
                             <div class="d-flex">
 
                               <p class="category__fileBottom__p">
-                                <a type="submit" class="profileUrl" href="<%=pdf.driveUrl%>" target="_blank">
+                                <a type="submit" class="profileUrl d-flex" href="<%=pdf.driveUrl%>" target="_blank">
                                   <i class="mdi mdi-download"></i>
-                                  <span>Download</span>
+                                  <span class="download" >Download</span>
                                 </a>
                               </p>
                               <% if (check==="true" ) { %>
                                 <form class="dlForm" action="/profile/<%=pdf._id%>" method="POST">
-                                  <button type="submit" class="category__fileBottom__p download">
-                                    <i class="mdi mdi-delete"></i>Delete
+                                  <button type="submit" class="category__fileBottom__p download d-flex">
+                                    <i class="mdi mdi-delete"></i>
+                                    <span>Delete</span>
                                    
                                   </button>
                                 </form>

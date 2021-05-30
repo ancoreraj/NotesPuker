@@ -62,17 +62,18 @@
     text-decoration: none !important;
     /* background-color: white; */
 }
+.category__fileBottom__p i,span{
+    padding: 1px;
+}
 
 .category__fileBottomDate{
-    text-align: center;
+    text-align: right;
 }
 .category__fileBottomDate p{
     border: none;
     font-size: 12px;
     cursor: text;
-}
-.category__fileBottomDate p:hover{
-    background-color: #fff;
+    margin: auto;
 }
 
 
@@ -138,7 +139,10 @@
         display: none !important;
     }
     .category__fileBottom__p{
-        padding: 3px 15px;
+        padding: 5px 10px;
+        font-size: 15px;
+        margin: 3px 5px;
+        /* padding-top: 10px; */
     }
     .category__fileTitle{
         padding-left: 10px;

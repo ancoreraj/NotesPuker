@@ -5,20 +5,20 @@
   <div class="category__fileBottom">
     <div class="d-flex">
       <p id="<%= pdf._id %>" class="<%= status %> category__fileBottom__p" onclick="updateUpvote('<%= pdf._id %>')">
-        <a id="liker" class="profileUrl">
-          <i class="mdi mdi-apple-keyboard-caps"></i>
-          <span class="category__displayNone">Upvote</span>
-          <span><%=pdf.upvotes.length%></span>
+        <a id="liker" class="profileUrl d-flex">
+            <i class="mdi mdi-apple-keyboard-caps"></i>
+            <span class="category__displayNone">Upvote</span>
+            <span><%=pdf.upvotes.length%></span>            
         </a>
       </p>
       <p class="category__fileBottom__p">
-        <a class="profileUrl" href="<%=pdf.driveUrl%>" target="_blank">
+        <a class="profileUrl d-flex" href="<%=pdf.driveUrl%>" target="_blank">
           <i class="mdi mdi-download"></i>
           <span class="category__displayNone">Download</span>
         </a>
       </p>
       <p class="category__fileBottom__p">
-        <a class="profileUrl" href="/profile/<%=pdf.user%>">
+        <a class="profileUrl d-flex" href="/profile/<%=pdf.user%>">
           <i class="mdi mdi-account"></i>
           <span>
             <%=pdf.userName%>
@@ -27,8 +27,8 @@
       </p>
     </div>
     <div class="category__fileBottomDate">
-      <p>Posted on <%=pdf.createdAt%>
-      </p>
+      <p>Posted on <%=pdf.createdAt%> </p>
+      
     </div>
   </div>
 </div>

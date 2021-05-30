@@ -172,7 +172,7 @@ router.post('/', ensureAuth, async (req, res) => {
     await profile.save((err)=>{
       console.log(err)
     })
-    console.log("profile pdfs : " + profile.pdfs);
+    // console.log("profile pdfs : " + profile.pdfs);
 
     const collegeName = req.user.collegeName
     await Colleges.findOne({collegeName: collegeName}, async (err, foundCollege) => {
@@ -200,7 +200,7 @@ router.post('/', ensureAuth, async (req, res) => {
                     console.log(err);
                 })
             }
-            console.log("foundCollege.topperformer: " + foundCollege.topPerformer);
+            // console.log("foundCollege.topperformer: " + foundCollege.topPerformer);
         }
     })
     await Colleges.findOne({collegeName: collegeName})
@@ -214,7 +214,7 @@ router.post('/', ensureAuth, async (req, res) => {
             await foundCollege.save((err) => {
                 console.log(err);
             })
-            console.log("sorted topPerformer: " + foundCollege.topPerformer);
+            // console.log("sorted topPerformer: " + foundCollege.topPerformer);
         }
     })
 

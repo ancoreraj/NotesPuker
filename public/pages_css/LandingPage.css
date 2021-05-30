@@ -6,7 +6,7 @@ body{
 
 header{
     
-    background-color: rgba(0, 0, 0, .55);
+    background-color: rgba(0, 0, 0, .35);
     background-blend-mode: darken;
     background-repeat: no-repeat;
     background-position: center center;
@@ -57,7 +57,7 @@ header{
 
 @media only screen and (max-width:900px) {
     .lp__body{
-        padding: 5px;
+        padding: 0px;
     }
     .lp__bodyLogin{
         margin-top: 50px;
@@ -65,5 +65,4 @@ header{
     .lp__bodyLogin input{
         width: 300px;
     }
-
 }
