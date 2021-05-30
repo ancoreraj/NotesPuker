@@ -129,7 +129,8 @@
 
                 <% }else{ %>
                   <% pdfs.forEach((pdf)=>{ %>
-                    <%-include('partials/_pdfFile',{pdf : pdf, branch: branch, year: year}) %>
+                    <% const status = (pdf.upvotes.indexOf(authorProfile._id) != -1) ? "upvoteBtn status" : "upvoteBtn"; %>
+                    <%-include('partials/_pdfFile',{pdf : pdf, branch: branch, year: year, status: status}) %>
   
                   <% }) %>
                   
@@ -190,16 +191,21 @@
   <!-- Upvote features js -->
   <script>
 
-    function updateUpvote(userId, title, pdfId) {
-        const year = '<%= year %>'
-        const branch = '<%= branch %>'
-        $.post('/dashboard/' + year + '/' + branch,
+function updateUpvote( pdfId ) {
+      const year = '<%= year %>'
+      const branch = '<%= branch %>'
+      $.post('/dashboard/' + year + '/' + branch,
         {
-            id: userId,
-            title: title
+          pdfId: pdfId,
         },
         (res, status) => {
-            $(`#${pdfId}`).text(res.upvoteCount);
+          $(`#${pdfId}`).find('span:nth-child(3)').text(res.upvoteCount);
+          if(res.upvoteStatus) {
+            $(`#${pdfId}`).addClass("status")
+          }
+          else {
+            $(`#${pdfId}`).removeClass("status")
+          }
         });
     }
 
