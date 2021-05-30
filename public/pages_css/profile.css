@@ -31,7 +31,9 @@
     box-shadow: 0px 0px 6px 2px #1f2833;
 }
 
-
+.download{
+    background-color: white !important;
+}
 .sidebar-css{
     box-shadow: 0px 0px 6px 1px #cccccc;
     border: none;
