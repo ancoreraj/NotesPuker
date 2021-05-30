@@ -51,7 +51,7 @@
     display: flex;
     justify-content: space-between;
 }
-.category__fileBottom p{
+.category__fileBottom .category__fileBottom__p{
     /* padding-bottom: 0px !important; */
     cursor: pointer;
     padding: 3px 5px;
@@ -59,10 +59,9 @@
     border-radius: 5px;
     border: 1px solid rgb(204, 204, 204);
     text-decoration: none !important;
+    background-color: white;
 }
-.category__fileBottom p:hover{
-    background-color: rgb(204, 204, 204);
-}
+
 .category__fileBottomDate{
     
 }
@@ -123,7 +122,7 @@
 }
 
 .status {
-    background-color: #1f2833;
+    background-color: #26323f;
     color: white;
 }
 

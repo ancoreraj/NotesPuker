@@ -21,9 +21,9 @@
 .profile-img {
     display: flex;
     align-items: center;
-    border-radius: 50%;
+    /* border-radius: 50%;
     box-shadow: 0px 0px 6px 2px #1f2833;
-    border: 10px solid #314052;
+    border: 10px solid #314052; */
 }
 .profile-img img{
     border-radius: 50%;

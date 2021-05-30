@@ -4,20 +4,20 @@
   </h3>
   <div class="category__fileBottom">
     <div class="d-flex">
-      <p id="<%= pdf._id %>" class="<%= status %>" onclick="updateUpvote('<%= pdf._id %>')">
+      <p id="<%= pdf._id %>" class="<%= status %> category__fileBottom__p" onclick="updateUpvote('<%= pdf._id %>')">
         <a id="liker" class="profileUrl">
           <i class="mdi mdi-apple-keyboard-caps"></i>
           <span>Upvote</span>
           <span><%=pdf.upvotes.length%></span>
         </a>
-    </p>
-      <p>
+      </p>
+      <p class="category__fileBottom__p">
         <a class="profileUrl" href="<%=pdf.driveUrl%>" target="_blank">
           <i class="mdi mdi-download"></i>
           <span>Download</span>
         </a>
       </p>
-      <p>
+      <p class="category__fileBottom__p">
         <a class="profileUrl" href="/profile/<%=pdf.user%>">
           <i class="mdi mdi-account"></i>
           <span>
