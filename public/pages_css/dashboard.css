@@ -35,6 +35,17 @@
     padding: 8px;
     text-align: center;
 }
+.dashboard__video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashboard__video video{
+    width: 75%;
+    padding: 10px 0px;
+}
+
+
 .dashboard__collegeQuora{
     margin-top: 15px;
 }
@@ -53,7 +64,11 @@
     padding: 5px;
     
 }
-.category__uploadForm{
+.dashboard__h4head{
+    background-color: #26323f;
+    color: white;
+}
+.dashboard__uploadForm{
     margin-top: 30px;
 }
 .category__uploadFormBottom{
@@ -63,7 +78,7 @@
 }
 
 input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: black !important;
+    color: rgb(71, 67, 67) !important;
     opacity: 1 !important; /* Firefox */
 }
 
@@ -122,6 +137,9 @@ input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     }
     .pageWrapperP{
         padding: 20px 5px;
+    }
+    .dashboard__video video{
+        width: 95%;
     }
 
 }

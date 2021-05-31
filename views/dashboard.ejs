@@ -89,7 +89,7 @@
               </div>
 
               <div class="card dashboard__topContributer box-shadow-2">
-                <h4 class="">Top Contributers</h4>
+                <h4 class="dashboard__h4head">Top Contributers</h4>
                 <table class="table table-bordered">
                   <tbody>
                     <% if(arr.length===0) { %>
@@ -113,9 +113,10 @@
                 </table>
               </div>
 
-              <div id="form" data-aos="zoom-in-up" class="card category__uploadForm box-shadow-2">
-                <div class="card-body">
-                  <h4 class="mb-3">Enter the details to upload your own notes</h4>
+              <div id="form" data-aos="zoom-in-up" class="card dashboard__uploadForm box-shadow-2">
+                <h4 class="p-2 text-center dashboard__h4head">Share your notes below</h4>
+                <div class="p-3">
+
                   <form id="uploadForm" name="my-form" class="forms-sample" action="/dashboard/uploadfile"
                     method="POST">
                     <div class="form-group">
@@ -163,6 +164,13 @@
                     <!-- <button type="submit" class="btn btn-danger mr-2">Submit</button>
                   <button id="cancel" class="btn btn-light">Cancel</button> -->
                   </form>
+                </div>
+                <h5 class="p-2 text-center dashboard__h4head">Tutorial to get drive link</h5>
+                <div class="dashboard__video">
+                  
+                  <video class="" controls>
+                    <source src="/videos/FileUpload.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
 

@@ -15,9 +15,9 @@ router.get('/collegeinput', ensureAuth ,(req,res)=>{
 })
 
 
-router.post('/collegeinput', ensureAuth, (req, res) => {
+router.post('/collegeinput', ensureAuth, async (req, res) => {
   try {
-     User.findOneAndUpdate({ googleId: req.user.googleId },{collegeName: req.body.college},{new: true},(err,doc)=>{
+     await User.findOneAndUpdate({ googleId: req.user.googleId },{collegeName: req.body.college},{new: true},(err,doc)=>{
       if(err){
         console.log(err);
       }else{
