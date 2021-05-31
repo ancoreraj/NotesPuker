@@ -52,6 +52,7 @@
 .dashboard__collegeQuora h4{
     padding: 8px;
     text-align: center;
+    
 }
 .dashboard__quoraInputQuestion{
     padding: 5px;
@@ -67,6 +68,7 @@
 .dashboard__h4head{
     background-color: #26323f;
     color: white;
+    border-radius: 4px 4px 2px 2px;
 }
 .dashboard__uploadForm{
     margin-top: 30px;
