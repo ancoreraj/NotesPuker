@@ -58,15 +58,11 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
   var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
   const br = `All Branches`
   // console.log(branch_sliced)
-  // console.log(branch)
+  // //console.log(year)
 
   if (year === '1') {
     try {
       const pdfs = await Pdfs.find({ college: college, year: year });
-
-      // pdfs.forEach((pdf) => {
-      //   console.log(pdf.user.firstName)
-      // })
 
       res.render("category", {
         branch_sliced: branch_sliced,

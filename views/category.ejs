@@ -93,7 +93,9 @@
                       <%}else if(year==='4' ){%>
                         <h2>4th Year</h2>
 
-                        <%}%>
+                        <%}else if(year === '5'){%>
+                          <h2>5th Year</h2>
+                          <%}%>
 
 
                           <div class="d-flex category__topDetail">
@@ -126,7 +128,7 @@
               <div class="card category__allFiles box-shadow-2">
 
                 <% if(pdfs.length==0){ %>
-                  <h2>There is no notes or files uploaded here.</h2>
+                  <h4 class="text-center">There is no notes or files uploaded here.</h4 class="text-center">
 
 
 

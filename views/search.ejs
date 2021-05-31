@@ -93,7 +93,10 @@
                 <%}else if(year==='4'){%>
                 <h2>4th year</h2>
 
-                <%}%>
+                <%}else if(year==='5'){%>
+                  <h2>5th year</h2>
+
+                  <%}%>
 
 
                 <div class="d-flex category__topDetail">
@@ -117,13 +120,13 @@
 
 
               <div class="card category__searchFiles box-shadow-2">
-                <h2>Search results for "<%= searchQuery %>"</h2>
+                <h4 class="text-center">Search results for "<%= searchQuery %>"</h4>
               </div>
 
               <div class="card category__allFiles box-shadow-2">
 
                 <% if(pdfs.length==0){ %>
-                  <h3 class="text-danger">We're sorry. No results found !</h3>
+                  <h4 class="text-danger text-center">We're sorry. No results found !</h4>
 
                   
 
