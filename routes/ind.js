@@ -6,7 +6,7 @@ const User = require('../models/User')
 
 // // @desc    Login/Landing page
 // // @route   GET /
-router.get('/', (req,res)=>{
+router.get('/', ensureGuest, (req,res)=>{
   res.render("LandingPage")
 })
 
