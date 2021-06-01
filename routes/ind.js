@@ -14,6 +14,13 @@ router.get('/collegeinput', ensureAuth ,(req,res)=>{
   res.render("collegeInput", {name: req.user.displayName })
 })
 
+router.get('/about',(req,res)=>{
+  res.render('about_us')
+})
+
+router.get('/contact',(req,res)=>{
+  res.render('contact')
+})
 
 router.post('/collegeinput', ensureAuth, async (req, res) => {
   try {

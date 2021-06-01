@@ -15,67 +15,74 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="/pages_css/about_us.css">
-    <title>Colloge Space | About Us</title>
+    <title>AncoreNotes | About Us</title>
 </head>
 
 <body>
 
-    <header class="header">
-        <nav class="navbar navbar-expand-md navbar-light bg-transparent">
-            <div class="container">
-                <a class="navbar-brand navbarText logo" href="#">CollegeSpace</a>
-                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li class="nav-item nav-li">
-                            <a class="nav-link navbarText" href="#" style="color: #2c0808d1;">Home</a>
-                        </li>
-                        <li class="nav-item nav-li">
-                            <a class="nav-link navbarText" href="#" style="color: #2c0808d1;">About</a>
-                        </li>
-                        <li class="nav-item nav-li">
-                            <a class="nav-link navbarText" href="#" style="color: #2c0808d1;">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <div class="container content-body pt-3">
-        <h1>About</h1>
-        <div class="row">
-            <div class="col-6">
-                <div class="content pt-3">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias sit ullam eveniet enim
-                        dolorum? Molestiae provident doloribus fugiat corrupti quia reiciendis velit maxime aliquid
-                        commodi harum tempora expedita, illum libero soluta. Quas esse eum minima illum rem qui
-                        exercitationem repudiandae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-                        repellendus molestiae accusantium veniam eos! Quisquam modi vitae labore natus corporis?
-                    </p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam praesentium explicabo ipsum obcaecati recusandae laudantium, voluptatem ut nemo nesciunt sequi aspernatur rerum numquam quaerat accusantium in harum architecto provident? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad molestias quod doloribus enim aperiam consequatur debitis fuga expedita nam. Veritatis, enim corporis! Sequi accusantium vel velit, blanditiis tenetur alias amet?</p>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="container img-content pt-4">
-                    <img class="img-fluid mx-auto d-block " src="w7.png" alt="">
-                </div>
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-transparent">
+        <div class="container">
+            <a class="navbar-brand navbarText" href="#">AncoreNotes</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon white"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link navbarText" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbarText" href="/about">About</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <div class="about__main">
+        <div class="about__content">
+            <h1 class="text-center">Hi everyone.</h1>
+            <p>We are just bunch of students of NIT Agartala students trying to help our peers to Share
+                their pdfs and notes to their friends.
+                Want to know about us more just click to contact us. We will revert back to you soon.
+            </p>
+            <div>
+                <a class="btn btn-outline-light mt-3" href="#">Founder : Ankur</a>
+                <a class="btn btn-outline-light mt-3" href="#">Team : Rahul</a>
+                <a class="btn btn-outline-light mt-3" href="#">Team : Rohit</a>
+
+            </div>
+
+        </div>
+
+        <div class="about__contactForm">
+            <form class="">
+                <h1 class="h3 mb-3 fw-normal text-center">Contact Us</h1>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Name" required>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingPassword" placeholder="Contact No"
+                        min="1000000000" max="9999999999">
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea type="message" class="form-control" id="floatingPassword" placeholder="Your Message"
+                        required></textarea>
+                </div>
+
+                <button class="w-100 btn btn-primary" type="submit">Sign in</button>
+            </form>
+
+        </div>
+
     </div>
 
-    <footer>
-        <div class="container mt-5 pt-2">
-            <div class="contact-info mx-auto w-50">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, non!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia magni tenetur veritatis soluta fugiat natus officiis mollitia, dignissimos nesciunt exercitationem!</p>
-            </div>
-        </div>
-    </footer>
+
+
 
 </body>
 

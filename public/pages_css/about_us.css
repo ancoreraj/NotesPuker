@@ -1,64 +1,64 @@
-body
-{
+body{
+    background-color: #212529;
     margin: 0;
     padding: 0;
-    /* background-image: linear-gradient( rgb(54 53 53 / 50%), rgb(0 0 0 / 27%)), url(ankur.jpg); */
-    background-image: linear-gradient( rgb(54 53 53 / 50%), rgb(139 95 95 / 27%)), url(ankur.jpg);
-    overflow-x: hidden;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    background-color: rgba(0, 0, 0, .35);
 }
-
-.header
-{
-    /* background-color: rgb(233 175 233 / 40%); */
-    background-color: rgb(255 32 255 / 25%);
-    box-shadow: 0px 1px 2px #c68ce3cf;
-
-    /* background-color: rgb(209 200 209 / 40%);
-    box-shadow: 0px 2px 2px #363636cf; */
-}
-
-.logo 
-{
-    font-weight: bold;
-}
-
-.nav-li {
-    font-size: 1.03rem;
-    font-weight: 500;
-    margin-right: 35px;
-}
-
-.nav-li a {
-    color: black;
-
-}
-
-.nav-li a:hover {
-    background-color: #db92e1;
-    border-radius: 9px;
-    box-shadow: 2px 2px 2px #3f3c3c;
+.navbarText{
+    color: whitesmoke !important;
     font-weight: 600;
 }
-
-.content-body h1{
-    border-bottom: 2px solid #000000;
+.about__main{
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    
+}
+.about__content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-right: 3px solid white;
+    padding: 30px;
+    align-items: center;
+    
+}
+.about__content p{
+    font-size: 20px;
+    font-weight: 300;
+    
+}
+.about__content a{
+    margin: auto;
+}
+.about__contactForm{
+    width: 50%;
+    padding: 30px;
+}
+.about__contactForm form{
+    width: 70%;
+   margin: auto;
 }
 
-.content p {
-    /* color:  */
-    font-weight: 500;
+
+
+@media only screen and (max-width:900px) {
+    .about__main{
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .about__content{
+        width: 100%;
+    border-right: none;
+    padding: 10px;
+    align-items: center;
+    }
+    .about__contactForm{
+        width: 100%;
+        padding: 30px;
+    }
 }
-
-
-.img-content img {
-    border-radius: 22px;
-}
-
-.contact-info {
-    text-align: center;
-}
-
