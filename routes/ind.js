@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
+const sendEmail = require("./../SendMail/mail")
 
 const User = require('../models/User')
 
@@ -18,9 +19,12 @@ router.get('/about',(req,res)=>{
   res.render('about_us')
 })
 
-router.get('/contact',(req,res)=>{
-  res.render('contact')
+router.post('/contact',(req,res)=>{
+  const {name, phoneNo, message} = req.body
+  sendEmail(name, phoneNo, message);
+  res.redirect('/about')
 })
+
 
 router.post('/collegeinput', ensureAuth, async (req, res) => {
   try {

@@ -28,7 +28,7 @@
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                 data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon white"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -50,31 +50,37 @@
                 Want to know about us more just click to contact us. We will revert back to you soon.
             </p>
             <div>
-                <a class="btn btn-outline-light mt-3" href="#">Founder : Ankur</a>
-                <a class="btn btn-outline-light mt-3" href="#">Team : Rahul</a>
-                <a class="btn btn-outline-light mt-3" href="#">Team : Rohit</a>
+                <a class="btn btn-outline-light mt-3" href="https://www.linkedin.com/in/ankur-raj-/" target="_blank">Founder : Ankur</a>
+                <a class="btn btn-outline-light mt-3" href="https://www.linkedin.com/in/rahul-9598/" target="_blank">Team : Rahul</a>
+                <a class="btn btn-outline-light mt-3" href="https://www.linkedin.com/in/rohit-ranjan-3355081a4" target="_blank">Team : Rohit</a>
 
             </div>
 
         </div>
 
         <div class="about__contactForm">
-            <form class="">
-                <h1 class="h3 mb-3 fw-normal text-center">Contact Us</h1>
+            <form action="/contact" method="POST">
+                <h1 class="h3 mb-3 fw-normal text-center">Contact us/Feedback</h1>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Name" required>
+                    <input type="text" class="form-control"
+                    name="name"
+                    placeholder="Name" required>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingPassword" placeholder="Contact No"
+                    <input type="number" class="form-control"
+                    name="phoneNo"
+                    placeholder="Contact No"
                         min="1000000000" max="9999999999">
                 </div>
                 <div class="form-floating mb-3">
-                    <textarea type="message" class="form-control" id="floatingPassword" placeholder="Your Message"
+                    <textarea type="message" class="form-control"
+                    name="message"
+                    placeholder="Your Message"
                         required></textarea>
                 </div>
 
-                <button class="w-100 btn btn-primary" type="submit">Sign in</button>
+                <button class="w-100 btn btn-primary" type="submit">Send</button>
             </form>
 
         </div>
