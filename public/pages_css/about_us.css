@@ -7,6 +7,9 @@ body{
     color: whitesmoke !important;
     font-weight: 600;
 }
+.nav__logo{
+    width: 21%;
+}
 .about__main{
     width: 100%;
     color: white;
@@ -60,5 +63,8 @@ body{
     .about__contactForm{
         width: 100%;
         padding: 30px 10px;
+    }
+    .nav__logo{
+        width: 50%;
     }
 }

@@ -21,11 +21,6 @@ header{
     font-weight: 600;
 }
 
-.nav__logo{
-    width: 21%;
-
-}
-
 .lp__body{
     padding: 50px;
     text-align: center;
@@ -74,7 +69,5 @@ header{
         width: 300px;
     }
 
-    .nav__logo{
-        width: 50%;
-    }
+
 }
