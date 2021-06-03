@@ -17,8 +17,13 @@ header{
 }
 
 .navbarText{
-    color: whitesmoke !important;
+    color: #26323f !important;
     font-weight: 600;
+}
+
+.nav__logo{
+    width: 21%;
+
 }
 
 .lp__body{
@@ -28,12 +33,12 @@ header{
 
 .lp__body h4{
     margin-top: 90px;
-    color: whitesmoke;
+    color: #26323f ;
 }
 
 .lp__body h1{
     margin-top: 45px;
-    color: whitesmoke;
+    color: #26323f ;
     /* color: #293e40; */
 }
 
@@ -59,10 +64,17 @@ header{
     .lp__body{
         padding: 0px;
     }
+    .lp__body h4{
+        margin-top: 40px;
+    }
     .lp__bodyLogin{
         margin-top: 50px;
     }
     .lp__bodyLogin input{
         width: 300px;
+    }
+
+    .nav__logo{
+        width: 50%;
     }
 }

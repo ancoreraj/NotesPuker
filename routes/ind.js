@@ -20,8 +20,8 @@ router.get('/about',(req,res)=>{
 })
 
 router.post('/contact',(req,res)=>{
-  const {name, phoneNo, message} = req.body
-  sendEmail(name, phoneNo, message);
+  const {name, email, message} = req.body
+  sendEmail(name, email, message);
   res.redirect('/about')
 })
 

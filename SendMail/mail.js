@@ -12,14 +12,14 @@ const transport = nodemailer.createTransport({
   }
 })
 
-const sendEmail = (name, phone, message) => {
+const sendEmail = (name, email, message) => {
   transport.sendMail({
     from: user,
     to: user,
     subject: "Contact from AncoreNotes",
     html: `<div>
         <p>Name : ${name}</p>
-        <p>Phone No : ${phone}</p>
+        <p>Email Id : ${email}</p>
         <p>Message : ${message}<p>
         </div>`,
   }).catch(err => console.log(err));
