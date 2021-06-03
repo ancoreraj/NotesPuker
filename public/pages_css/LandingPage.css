@@ -25,6 +25,10 @@ header{
     width: 21%;
 
 }
+.logo__a{
+    
+
+}
 
 .lp__body{
     padding: 50px;
@@ -65,7 +69,7 @@ header{
         padding: 0px;
     }
     .lp__body h4{
-        margin-top: 40px;
+        margin-top: 60px;
     }
     .lp__bodyLogin{
         margin-top: 50px;
@@ -75,6 +79,10 @@ header{
     }
 
     .nav__logo{
-        width: 50%;
+        width: 90%;
+    }
+    .logo__a{
+        width: 70%;
+
     }
 }
