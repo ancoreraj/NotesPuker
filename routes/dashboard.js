@@ -25,7 +25,7 @@ router.get('/', ensureAuth , async (req,res)=>{
             if(foundCollege !== null) {
                 const len = foundCollege.topPerformer.length;
                 
-                for(let i=0; i<len && i<3; ++i) {
+                for(let i=0; i<len && i<5; ++i) {
                     let profile = {
                         "name": foundCollege.topPerformer[i].displayName,
                         "id": foundCollege.topPerformer[i]._id,
