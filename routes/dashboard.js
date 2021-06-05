@@ -7,6 +7,7 @@ const User = require('../models/User')
 const Pdfs = require('../models/Pdfs')
 const Colleges = require('../models/Colleges')
 const { templateSettings } = require('lodash')
+const dateString = require('../public/js/date')
 
 // @desc    dashboard of the respective college
 // @route   GET /dashboard/
@@ -145,8 +146,7 @@ router.post('/', ensureAuth, async (req, res) => {
     const title = req.body.title
     const year = req.body.year
     const branch = _.camelCase(req.body.branch)
-    const date = new Date();
-    const dateStr = date.toLocaleString(undefined, { timeZone: 'Asia/Kolkata' }).split(",")[0]
+    const dateStr = dateString()
     const pdf = new Pdfs({
       title: title,
       driveUrl: driveUrl,

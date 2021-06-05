@@ -278,12 +278,18 @@
       return (res !== null)
     };
 
+    const isValidDriveUrl = (driveUrl) => {
+        const urlPattern = /https:\/\/drive.google.com\/file\/d\/[a-zA-Z0-9_-]*\/view\?usp=sharing/
+        const matched = driveUrl.match(urlPattern)
+        return (matched != null) ? true : false;
+    }
+
     $("#uploadForm").on("submit", (e) => {
       e.preventDefault();
 
       const driveUrl = $("#exampleInputEmail1").val();
       console.log(driveUrl);
-      if (isValidURL(driveUrl)) {
+      if (isValidDriveUrl(driveUrl) && isValidURL(driveUrl)) {
         $.ajax({
           data: $("#uploadForm").serialize(),
           type: 'post',
