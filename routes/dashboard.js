@@ -104,10 +104,11 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
 
 
 // Like feature
-router.post('/:year/:branch', async (req, res) => {
+router.post('/like/:pdfId', async (req, res) => {
   try {
     // const userId = req.body.id
     // const title = req.body.title
+    // console.log('Hello');
     const pdfId = req.body.pdfId
     const currUser = req.user.id;
     await Pdfs.findOne({ _id: pdfId }, (err, foundPdf) => {
