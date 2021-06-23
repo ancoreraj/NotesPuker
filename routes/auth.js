@@ -4,8 +4,12 @@ const router = express.Router()
 
 // // @desc    Auth with Google
 // // @route   GET /auth/google
-router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
-
+router.get('/google', passport.authenticate('google', {
+    scope: [
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email'
+    ]})
+)
 // // @desc    Google auth callback
 // // @route   GET /auth/google/callback
 router.get(

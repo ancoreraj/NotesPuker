@@ -37,6 +37,7 @@ router.get('/', ensureAuth , async (req,res)=>{
                 }
             }
         }
+        
         res.render("dashboard", {
             college : req.user.collegeName,
             authorProfile : authorProfile,
