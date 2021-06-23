@@ -64,10 +64,11 @@
         </div>
 
         <div class="about__contactForm">
-            <%- include('partials/flashMessages'); -%>
+            
             <form action="/contact" method="POST">
-
+                
                 <h1 class="h3 mb-3 fw-normal text-center">Contact us/Feedback</h1>
+                <%- include('partials/flashMessages'); -%>
                 
 
                 <div class="form-floating mb-3">

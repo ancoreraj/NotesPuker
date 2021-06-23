@@ -157,7 +157,7 @@ router.post('/', ensureAuth, async (req, res) => {
     await pdf.save((err) => {
       console.log(err);
     })
-    
+
     req.user.pdfs.push(pdf)
 
     await req.user.save((err)=>{
@@ -234,7 +234,6 @@ router.post("/search/:year/:branch", async (req, res) => {
                 console.log(err);
             }
             else {
-                // console.log(foundPdf);
                 res.render("search", {
                     branch_sliced : branch_sliced,
                     college : college,
