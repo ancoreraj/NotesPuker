@@ -59,8 +59,6 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
   var result = branch.replace( /([A-Z])/g, " $1" );
   var branch_sliced = result.charAt(0).toUpperCase() + result.slice(1);
   const br = `All Branches`
-  // console.log(branch_sliced)
-  // //console.log(year)
 
   if (year === '1') {
     try {
@@ -107,9 +105,6 @@ router.get('/:year/:branch', ensureAuth, async (req, res) => {
 // Like feature
 router.post('/like/:pdfId', async (req, res) => {
   try {
-    // const userId = req.body.id
-    // const title = req.body.title
-    // console.log('Hello');
     const pdfId = req.body.pdfId
     const currUser = req.user.id;
     await Pdfs.findOne({ _id: pdfId }, (err, foundPdf) => {
@@ -117,7 +112,6 @@ router.post('/like/:pdfId', async (req, res) => {
         console.log(err);
       }
       else {
-        // const currUser = req.user.id;
         const currLen = foundPdf.upvotes.length
         var newLen = currLen
         if (foundPdf.upvotes.indexOf(currUser) === -1) {
@@ -163,14 +157,12 @@ router.post('/', ensureAuth, async (req, res) => {
     await pdf.save((err) => {
       console.log(err);
     })
+    
+    req.user.pdfs.push(pdf)
 
-    const profile = await User.findById(req.user.id)
-    profile.pdfs.push(pdf)
-
-    await profile.save((err)=>{
+    await req.user.save((err)=>{
       console.log(err)
     })
-    // console.log("profile pdfs : " + profile.pdfs);
 
     const collegeName = req.user.collegeName
     await Colleges.findOne({collegeName: collegeName}, async (err, foundCollege) => {
@@ -198,7 +190,6 @@ router.post('/', ensureAuth, async (req, res) => {
                     console.log(err);
                 })
             }
-            // console.log("foundCollege.topperformer: " + foundCollege.topPerformer);
         }
     })
     await Colleges.findOne({collegeName: collegeName})
@@ -212,7 +203,6 @@ router.post('/', ensureAuth, async (req, res) => {
             await foundCollege.save((err) => {
                 console.log(err);
             })
-            // console.log("sorted topPerformer: " + foundCollege.topPerformer);
         }
     })
 

@@ -162,14 +162,10 @@
               </div>
 
               <div class="profile__body">
-
-
-
-
-
-
+                <%- include('partials/flashMessages'); -%>
 
                 <div class="card category__allFiles box-shadow-2">
+                  
 
                   <% if(pdfs.length==0){ %>
                     <h5 class="text-danger">* You have not uploaded any pdfs/notes. Redirect to the dashboard and upload your pdfs/notes and help your friends. *</h5>

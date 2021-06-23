@@ -22,6 +22,7 @@ router.get('/about',(req,res)=>{
 router.post('/contact',(req,res)=>{
   const {name, email, message} = req.body
   sendEmail(name, email, message);
+  req.flash('success_msg','Email Sent to AncoreNotes.')
   res.redirect('/about')
 })
 

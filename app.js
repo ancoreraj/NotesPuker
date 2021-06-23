@@ -5,9 +5,11 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 const passport = require('passport')
+const flash = require('connect-flash');
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db')
+
 
 // Load config
 dotenv.config({ path: './config/config.env' })
@@ -58,9 +60,15 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+// Connect flash
+app.use(flash())
+
 // Set global var
 app.use(function (req, res, next) {
   res.locals.user = req.user || null
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
   next()
 })
 

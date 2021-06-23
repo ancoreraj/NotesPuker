@@ -45,8 +45,10 @@
             </div>
         </div>
     </nav>
+    
     <div class="about__main">
         <div class="about__content">
+            
             <h1 class="text-center">Hi everyone.</h1>
             <p>We are just bunch of students of NIT Agartala students trying to help our peers to Share
                 their pdfs and notes to their friends.
@@ -62,8 +64,11 @@
         </div>
 
         <div class="about__contactForm">
+            <%- include('partials/flashMessages'); -%>
             <form action="/contact" method="POST">
+
                 <h1 class="h3 mb-3 fw-normal text-center">Contact us/Feedback</h1>
+                
 
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control"
