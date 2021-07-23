@@ -27,7 +27,6 @@ const PdfSchema = new mongoose.Schema({
   },
   userName: {
     type: String,
-    
   },
   createdAt: {
     type: String,

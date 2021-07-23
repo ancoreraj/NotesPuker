@@ -192,6 +192,7 @@ router.post('/', ensureAuth, async (req, res) => {
             }
         }
     })
+    
     await Colleges.findOne({collegeName: collegeName})
     .populate('topPerformer')
     .exec(async (err, foundCollege) => {

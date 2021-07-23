@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 const sendEmail = require("./../SendMail/mail")
-
 const User = require('../models/User')
 
 // // @desc    Login/Landing page
