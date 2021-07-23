@@ -25,7 +25,6 @@ router.post('/contact',(req,res)=>{
   res.redirect('/about')
 })
 
-
 router.post('/collegeinput', ensureAuth, async (req, res) => {
   try {
      await User.findOneAndUpdate({ googleId: req.user.googleId },{collegeName: req.body.college},{new: true},(err,doc)=>{
